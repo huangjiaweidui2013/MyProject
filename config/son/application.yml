@@ -1,0 +1,47 @@
+server:
+  port: 8887
+
+#spring:
+#  security:
+#    user:
+##      默认情况下，登录的用户名是 user ，密码则是项目启动时随机生成的字符串，可以从启动的控制台日志中看到默认密码
+#      name: admin
+#      password: 123
+
+#my:
+#  config:
+#    test:
+#      name: huang
+#      age: 15
+#      addr: China
+
+sbs:
+  property:
+    test:
+      name: huang
+      age: 15
+      address: Wuhan
+
+
+spring:
+  jackson:
+    date-format: 日期[ yyyy-MM-dd ]时间[ HH:mm:ss ]
+    time-zone: GMT+6
+  thymeleaf:
+    cache: false
+    #    将thymeleaf模板文件放在jar包相同目录下的templates/html/文件夹里
+    prefix: file:templates/html/
+    #将thymeleaf模板文件放在jar包外面的指定位置
+    #    prefix: file:D:\templates\html\
+    suffix: .html
+  mvc:
+    view:
+      prefix: html/
+      suffix: .html
+  web:
+    resources:
+      static-locations: classpath:templates/, file:${file.save.dir}, classpath:static/
+
+file:
+  save:
+    dir: D:/templates/

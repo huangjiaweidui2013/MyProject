@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: SpringBootSecurity
+  cloud:
+    nacos:
+      config:
+        server-addr: localhost:8848
+        namespace: my-nacos-learn
+        group: nacos-test
+        file-extension: yml
+        refresh-enabled: true
+        prefix: nacos-demo

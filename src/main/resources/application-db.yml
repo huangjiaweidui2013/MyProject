@@ -1,0 +1,9 @@
+spring:
+  #开发环境数据库
+  datasource:
+    url: jdbc:mysql://localhost:3306/my_jpa?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true
+    username: root
+    password: 123456
+
+
+

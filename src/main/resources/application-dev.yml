@@ -1,0 +1,97 @@
+server:
+  port: 8887
+
+#spring:
+#  security:
+#    user:
+##      默认情况下，登录的用户名是 user ，密码则是项目启动时随机生成的字符串，可以从启动的控制台日志中看到默认密码
+#      name: admin
+#      password: 123
+
+#my:
+#  config:
+#    test:
+#      name: huang
+#      age: 15
+#      addr: China
+
+# springboot 使用 nacos config 管理项目配置文件的另一种方式,通过 Nacos Server 和
+#  nacos-config-spring-boot-starter 实现配置的动态变更
+# 不需要bootstrap.yml文件,项目配置文件配置如下:
+#nacos:
+#  config:
+#    server-addr: 127.0.0.1:8848
+#    bootstrap:
+#      enable: true
+#    #    以下配置需要设置 nacos.config.bootstrap.enable=true 才起作用
+#    # 主配置 group-id
+#    group: nacos-test
+#    # 主配置 配置文件类型
+#    type: yaml
+#    # 主配置 data-id
+#    data-id: nacos-config-sb-demo
+#    # 主配置 开启自动刷新
+#    auto-refresh: true
+#    namespace: my-nacos-learn
+
+
+sbs:
+  property:
+    test:
+      name: huang
+      age: 15
+      address: Wuhan
+
+
+spring:
+  mail:
+    host: smtp.mxhichina.com
+    port: 465
+    username: spring-boot-demo@xkcoding.com
+    # 使用 jasypt 加密密码，使用com.xkcoding.email.PasswordTest.testGeneratePassword 生成加密密码，替换 ENC(加密密码)
+    #    password: ENC(OT0qGOpXrr1Iog1W+fjOiIDCJdBjHyhy)
+    password: 123456
+    protocol: smtp
+    test-connection: true
+    default-encoding: UTF-8
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+      mail.smtp.ssl.enable: true
+      mail.display.sendmail: spring-boot-security
+  jpa:
+    #在建表的时候，将默认的存储引擎切换为 InnoDB
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    #配置在日志中打印出执行的 SQL 语句信息
+    show-sql: true
+    # 配置指明在程序启动的时候要删除并且创建实体类对应的表
+    hibernate:
+      ddl-auto: update
+    database: mysql
+  jackson:
+    date-format: 日期[ yyyy-MM-dd ]时间[ HH:mm:ss ]
+    time-zone: GMT+6
+  thymeleaf:
+    cache: false
+    #    将thymeleaf模板文件放在jar包相同目录下的templates/html/文件夹里
+    prefix: file:templates/html/
+    #将thymeleaf模板文件放在jar包外面的指定位置
+    #    prefix: file:D:\templates\html\
+    suffix: .html
+  mvc:
+    view:
+      prefix: html/
+      suffix: .html
+  web:
+    resources:
+      static-locations: classpath:templates/, file:${file.save.dir}, classpath:static/
+
+file:
+  save:
+    dir: D:/templates/
+
+# 为 jasypt 配置解密秘钥
+jasypt:
+  encryptor:
+    password: spring-boot-security
