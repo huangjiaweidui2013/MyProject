@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.util.Comparator;
+import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -31,21 +32,22 @@ public class CollectorsGroupingBy {
     public static void main(String[] args) {
         List<Apple> list = appleList();
 
-//        try {
-////            groupByConcatField(list);
-////            groupByCustom(list);
-////            groupByMulti(list);
-////            groupByAndCount(list);
-////            groupByAndSum(list);
-////            groupByAndMaxBy(list);
-////            groupBySet(list);
-//        } catch (JsonProcessingException e) {
-//            e.printStackTrace();
-//        }
+        try {
+//            groupByConcatField(list);
+//            groupByCustom(list);
+//            groupByMulti(list);
+//            groupByAndCount(list);
+            groupByAndSum(list);
+            groupByAndSummarize(list);
+//            groupByAndMaxBy(list);
+//            groupBySet(list);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
 
 //        List<Apple> collect = sortByMultipleProperties(list);
 //        groupBySingleField(collect);
-        sortByMultiplePropertiesAndGroupBy(list);
+//        sortByMultiplePropertiesAndGroupBy(list);
     }
 
     /**
@@ -164,6 +166,18 @@ public class CollectorsGroupingBy {
     static void groupBySet(List<Apple> list) throws JsonProcessingException {
         Map<String, Set<String>> collect = list.stream().collect(Collectors.groupingBy(Apple::getCategory,
                 Collectors.mapping(Apple::getName, Collectors.toSet())));
+        System.out.println(mapper.writeValueAsString(collect));
+    }
+
+    /**
+     * 分组求和
+     *
+     * @param list
+     * @throws JsonProcessingException
+     */
+    static void groupByAndSummarize(List<Apple> list) throws JsonProcessingException {
+        Map<String, IntSummaryStatistics> collect = list.stream().collect(Collectors.groupingBy(Apple::getCategory,
+                Collectors.summarizingInt(Apple::getNum)));
         System.out.println(mapper.writeValueAsString(collect));
     }
 
