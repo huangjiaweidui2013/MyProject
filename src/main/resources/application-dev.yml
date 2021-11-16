@@ -8,12 +8,12 @@ server:
 #      name: admin
 #      password: 123
 
-#my:
-#  config:
-#    test:
-#      name: huang
-#      age: 15
-#      addr: China
+my:
+  config:
+    test:
+      name: huang
+      age: 15
+      addr: China
 
 # springboot 使用 nacos config 管理项目配置文件的另一种方式,通过 Nacos Server 和
 #  nacos-config-spring-boot-starter 实现配置的动态变更
@@ -44,22 +44,22 @@ sbs:
 
 
 spring:
-  mail:
-    host: smtp.mxhichina.com
-    port: 465
-    username: spring-boot-demo@xkcoding.com
-    # 使用 jasypt 加密密码，使用com.xkcoding.email.PasswordTest.testGeneratePassword 生成加密密码，替换 ENC(加密密码)
-    #    password: ENC(OT0qGOpXrr1Iog1W+fjOiIDCJdBjHyhy)
-    password: 123456
-    protocol: smtp
-    test-connection: true
-    default-encoding: UTF-8
-    properties:
-      mail.smtp.auth: true
-      mail.smtp.starttls.enable: true
-      mail.smtp.starttls.required: true
-      mail.smtp.ssl.enable: true
-      mail.display.sendmail: spring-boot-security
+  #  mail:
+  #    host: smtp.mxhichina.com
+  #    port: 465
+  #    username: spring-boot-demo@xkcoding.com
+  #    # 使用 jasypt 加密密码，使用com.xkcoding.email.PasswordTest.testGeneratePassword 生成加密密码，替换 ENC(加密密码)
+  #    #    password: ENC(OT0qGOpXrr1Iog1W+fjOiIDCJdBjHyhy)
+  #    password: 123456
+  #    protocol: smtp
+  #    test-connection: true
+  #    default-encoding: UTF-8
+  #    properties:
+  #      mail.smtp.auth: true
+  #      mail.smtp.starttls.enable: true
+  #      mail.smtp.starttls.required: true
+  #      mail.smtp.ssl.enable: true
+  #      mail.display.sendmail: spring-boot-security
   jpa:
     #在建表的时候，将默认的存储引擎切换为 InnoDB
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
