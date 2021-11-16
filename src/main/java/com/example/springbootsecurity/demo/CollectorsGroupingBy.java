@@ -170,7 +170,7 @@ public class CollectorsGroupingBy {
     }
 
     /**
-     * 分组求和
+     * 分组汇总
      *
      * @param list
      * @throws JsonProcessingException
