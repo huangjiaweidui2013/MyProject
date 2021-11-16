@@ -58,7 +58,7 @@ public class MyTestServiceImpl implements MyTestService {
         new Thread(() -> {
             while (true) {
                 try {
-                    Thread.sleep(7000);
+                    Thread.sleep(5000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -72,7 +72,7 @@ public class MyTestServiceImpl implements MyTestService {
         new Thread(() -> {
             while (true) {
                 try {
-                    Thread.sleep(8000);
+                    Thread.sleep(550000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

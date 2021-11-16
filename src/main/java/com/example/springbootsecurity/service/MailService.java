@@ -1,6 +1,6 @@
 package com.example.springbootsecurity.service;
 
-import javax.mail.MessagingException;
+//import javax.mail.MessagingException;
 
 /**
  * @projectName: SpringBootSecurity
@@ -30,7 +30,7 @@ public interface MailService {
      * @param cc      抄送地址
      * @throws MessagingException 邮件发送异常
      */
-    void sendHtmlMail(String to, String subject, String content, String... cc) throws MessagingException;
+//    void sendHtmlMail(String to, String subject, String content, String... cc) throws MessagingException;
 
     /**
      * 发送带附件的邮件
@@ -42,7 +42,8 @@ public interface MailService {
      * @param cc       抄送地址
      * @throws MessagingException 邮件发送异常
      */
-    void sendAttachmentsMail(String to, String subject, String content, String filePath, String... cc) throws MessagingException;
+//    void sendAttachmentsMail(String to, String subject, String content, String filePath, String... cc) throws
+//    MessagingException;
 
     /**
      * 发送正文中有静态资源的邮件
@@ -55,5 +56,6 @@ public interface MailService {
      * @param cc      抄送地址
      * @throws MessagingException 邮件发送异常
      */
-    void sendResourceMail(String to, String subject, String content, String rscPath, String rscId, String... cc) throws MessagingException;
+//    void sendResourceMail(String to, String subject, String content, String rscPath, String rscId, String... cc)
+//    throws MessagingException;
 }

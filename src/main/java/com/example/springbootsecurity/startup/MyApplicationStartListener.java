@@ -4,8 +4,6 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
-import java.time.LocalDateTime;
-
 /**
  * @projectName: SpringBootSecurity
  * @package: com.example.springbootsecurity.startup
@@ -18,16 +16,16 @@ import java.time.LocalDateTime;
 public class MyApplicationStartListener implements ApplicationListener<ContextRefreshedEvent> {
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
-        System.out.println("MyApplicationStartListener onApplicationEvent 方法开始执行...");
-        new Thread(() -> {
-            while (true) {
-                try {
-                    Thread.sleep(5000);
-                    System.out.println("MyApplicationStartListener 打印当前时间: " + LocalDateTime.now());
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
+//        System.out.println("MyApplicationStartListener onApplicationEvent 方法开始执行...");
+//        new Thread(() -> {
+//            while (true) {
+//                try {
+//                    Thread.sleep(5000);
+//                    System.out.println("MyApplicationStartListener 打印当前时间: " + LocalDateTime.now());
+//                } catch (InterruptedException e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        }).start();
     }
 }

@@ -39,6 +39,6 @@ public class MyCommandLineRunner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
         System.out.println("MyCommandLineRunner run 方法开始执行...");
-        myTestService.ThreadPrintInfo();
+//        myTestService.ThreadPrintInfo();
     }
 }

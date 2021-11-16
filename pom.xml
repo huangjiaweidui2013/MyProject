@@ -25,10 +25,10 @@
         <!--springboot 使用 nacos config 管理项目配置文件的第一种方式,
         通过 Nacos Server 和 spring-cloud-starter-alibaba-nacos-config 实现配置的动态变更-->
         <!--官网 https://nacos.io/zh-cn/docs/quick-start-spring-cloud.html-->
-        <dependency>
+        <!--<dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-        </dependency>
+        </dependency>-->
         <!--springboot 使用 nacos config 管理项目配置文件的另一种方式,通过 Nacos Server 和 nacos-config-spring-boot-starter 实现配置的动态变更,
         需要引入下方的依赖-->
         <!--注意：版本 0.2.x.RELEASE 对应的是 Spring Boot 2.x 版本，版本 0.1.x.RELEASE 对应的是 Spring Boot 1.x 版本。-->
@@ -118,17 +118,17 @@
         </dependency>
 
         <!-- Spring Boot 邮件依赖 -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-mail</artifactId>
-        </dependency>
+        </dependency>-->
 
         <!--jasypt配置文件加解密-->
-        <dependency>
+        <!--<dependency>
             <groupId>com.github.ulisesbocchio</groupId>
             <artifactId>jasypt-spring-boot-starter</artifactId>
             <version>${jasypt.version}</version>
-        </dependency>
+        </dependency>-->
 
     </dependencies>
 

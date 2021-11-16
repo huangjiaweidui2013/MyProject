@@ -28,6 +28,6 @@ public class MyApplicationRunner implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        myTestService.ThreadPrintRandom();
+//        myTestService.ThreadPrintRandom();
     }
 }

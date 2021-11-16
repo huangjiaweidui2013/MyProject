@@ -2,7 +2,6 @@ package com.example.springbootsecurity.config;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.stereotype.Component;
 
 /**
@@ -15,7 +14,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 @Slf4j
-@RefreshScope
+//@RefreshScope
 public class MyConfigTest {
     //    @Value("${my.config.test.name:Lang}")
     @Value("${my.config.test.name}")

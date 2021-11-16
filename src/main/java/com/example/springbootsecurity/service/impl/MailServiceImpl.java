@@ -4,7 +4,7 @@ import com.example.springbootsecurity.service.MailService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import javax.mail.MessagingException;
+//import javax.mail.MessagingException;
 
 /**
  * @projectName: SpringBootSecurity
@@ -52,8 +52,8 @@ public class MailServiceImpl implements MailService {
      * @param cc      抄送地址
      * @throws MessagingException 邮件发送异常
      */
-    @Override
-    public void sendHtmlMail(String to, String subject, String content, String... cc) throws MessagingException {
+//    @Override
+//    public void sendHtmlMail(String to, String subject, String content, String... cc) throws MessagingException {
 //        MimeMessage message = mailSender.createMimeMessage();
 //        MimeMessageHelper helper = new MimeMessageHelper(message, true);
 //        helper.setFrom(from);
@@ -64,7 +64,7 @@ public class MailServiceImpl implements MailService {
 //            helper.setCc(cc);
 //        }
 //        mailSender.send(message);
-    }
+//    }
 
     /**
      * 发送带附件的邮件
@@ -76,8 +76,9 @@ public class MailServiceImpl implements MailService {
      * @param cc       抄送地址
      * @throws MessagingException 邮件发送异常
      */
-    @Override
-    public void sendAttachmentsMail(String to, String subject, String content, String filePath, String... cc) throws MessagingException {
+//    @Override
+//    public void sendAttachmentsMail(String to, String subject, String content, String filePath, String... cc)
+//    throws MessagingException {
 //        MimeMessage message = mailSender.createMimeMessage();
 //
 //        MimeMessageHelper helper = new MimeMessageHelper(message, true);
@@ -93,7 +94,7 @@ public class MailServiceImpl implements MailService {
 //        helper.addAttachment(fileName, file);
 //
 //        mailSender.send(message);
-    }
+//    }
 
     /**
      * 发送正文中有静态资源的邮件
@@ -106,9 +107,9 @@ public class MailServiceImpl implements MailService {
      * @param cc      抄送地址
      * @throws MessagingException 邮件发送异常
      */
-    @Override
-    public void sendResourceMail(String to, String subject, String content, String rscPath, String rscId,
-                                 String... cc) throws MessagingException {
+//    @Override
+//    public void sendResourceMail(String to, String subject, String content, String rscPath, String rscId,
+//                                 String... cc) throws MessagingException {
 //        MimeMessage message = mailSender.createMimeMessage();
 //
 //        MimeMessageHelper helper = new MimeMessageHelper(message, true);
@@ -123,5 +124,5 @@ public class MailServiceImpl implements MailService {
 //        helper.addInline(rscId, res);
 //
 //        mailSender.send(message);
-    }
+//    }
 }
