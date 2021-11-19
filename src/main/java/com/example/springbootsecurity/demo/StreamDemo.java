@@ -29,6 +29,7 @@ import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.mapping;
 import static java.util.stream.Collectors.maxBy;
+import static java.util.stream.Collectors.partitioningBy;
 import static java.util.stream.Collectors.summarizingInt;
 import static java.util.stream.Collectors.summingInt;
 import static java.util.stream.Collectors.toCollection;
@@ -37,12 +38,12 @@ import static java.util.stream.Collectors.toSet;
 /**
  * @projectName: SpringBootSecurity
  * @package: com.example.springbootsecurity.demo
- * @className: StreamTest
+ * @className: StreamDemo
  * @author: HuangLang
  * @description: 学习jdk8的stream相关操作
  * @date: 2021-11-16 上午 10:38
  */
-public class StreamTest {
+public class StreamDemo {
     private static final ObjectMapper mapper = new ObjectMapper();
 
     public static void main(String[] args) throws JsonProcessingException {
@@ -279,12 +280,50 @@ public class StreamTest {
                 d -> {
                     if (d.getCalories() <= 400)
                         return CaloricLevel.DIET;
-                    else if (d.getCalories() <= 700) return CaloricLevel.NORMAL;
-                    else return CaloricLevel.FAT;
+                    else if (d.getCalories() <= 700)
+                        return CaloricLevel.NORMAL;
+                    else
+                        return CaloricLevel.FAT;
                 }, toCollection(HashSet::new))));
         System.out.println(mapper.writeValueAsString(collect8));
+
+        /***************************************** 分区 **************************************/
+        //分区是分组的特殊情况：由一个谓词（返回一个布尔值的函数）作为分类函数，它称分区函数。分区函数返回一个布尔值，这意味着得到的
+        //分组Map的键类型是Boolean，于是它最多可以分为两组: true是一组，false是一组。
+        Map<Boolean, List<Dish>> collect9 = menu.stream().collect(partitioningBy(Dish::isVegetarian));
+        System.out.println(mapper.writeValueAsString(collect9));
+
+        Map<Boolean, Map<Dish.Type, List<Dish>>> collect10 = menu.stream().collect(partitioningBy(Dish::isVegetarian,
+                groupingBy(Dish::getType)));
+        System.out.println(mapper.writeValueAsString(collect10));
+
+        Map<Boolean, Dish> collect11 = menu.stream().collect(partitioningBy(Dish::isVegetarian,
+                collectingAndThen(maxBy(Comparator.comparingInt(Dish::getCalories)), Optional::get)));
+        System.out.println(mapper.writeValueAsString(collect11));
     }
 
+    /**
+     * 判断数字是否是质数 :true 质数, false 非质数
+     *
+     * @param candidate
+     * @return true 质数, false 非质数
+     */
+    static boolean isPrime(int candidate) {
+        //一个简单的优化是仅测试小于等于待测数平方根的因子
+        int candidateRoot = (int) Math.sqrt(candidate);
+        return IntStream.rangeClosed(2, candidateRoot).noneMatch(i -> candidate % i == 0);
+    }
+
+    /**
+     * 前n个数字分为质数和非质数
+     *
+     * @param n
+     * @return
+     */
+    public Map<Boolean, List<Integer>> partitionPrimes(int n) {
+        return IntStream.rangeClosed(2, n).boxed()
+                .collect(partitioningBy(candidate -> isPrime(candidate)));
+    }
 
     static List<Dish> getDishList() {
         List<Dish> menu = Arrays.asList(
