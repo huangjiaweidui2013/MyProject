@@ -67,7 +67,7 @@ spring:
     show-sql: true
     # 配置指明在程序启动的时候要删除并且创建实体类对应的表
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     database: mysql
   jackson:
     date-format: 日期[ yyyy-MM-dd ]时间[ HH:mm:ss ]
