@@ -120,6 +120,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
          */
         web.ignoring().antMatchers("/ignoreTest").antMatchers("/test");
         web.ignoring().antMatchers("/static/pages/**");
+        //Spring Security不配置时会把所有请求都拦截的，这里配置不拦截拦截监控端点/actuator/**，以便显示完全的信息
+        web.ignoring().antMatchers("/actuator/**");
     }
 
     @Bean

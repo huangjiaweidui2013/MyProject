@@ -117,6 +117,19 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- SpringBoot Admin Client -->
+        <dependency>
+            <groupId>de.codecentric</groupId>
+            <artifactId>spring-boot-admin-starter-client</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+
+        <!-- SpringBoot Actuator -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
         <!-- Spring Boot 邮件依赖 -->
         <!--<dependency>
             <groupId>org.springframework.boot</groupId>
