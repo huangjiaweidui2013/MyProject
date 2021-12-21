@@ -16,6 +16,8 @@ public class Hello {
 
         int max(int a, int b);
 
+        int add(int a, int b);
+
         void getBool(boolean x);
 
         void testArray(short[] vals, int len);
@@ -27,6 +29,8 @@ public class Hello {
         void printUserRef(User user);
 
         void printGrade(Structure.ByValue grade);
+
+        User changeUser(User user);
 
         @Data
         @Structure.FieldOrder({"name", "height", "weight"})
@@ -77,13 +81,21 @@ public class Hello {
         @Data
         @Structure.FieldOrder({"user", "age"})
         public static class Grade extends Structure {
-            public static class ByValue extends Grade implements Structure.ByValue {
+            public static class GradeByValue extends Grade implements Structure.ByValue {
+                public GradeByValue(User user, int age) {
+                    super(user, age);
+                }
             }
 
-            public static class ByReference extends Grade implements Structure.ByReference {
+            public static class GradeByReference extends Grade implements Structure.ByReference {
+                public GradeByReference(User user, int age) {
+                    super(user, age);
+                }
             }
 
-            public Grade() {
+            public Grade(User user, int age) {
+                this.user = user;
+                this.age = age;
             }
 
             public User user;
@@ -95,10 +107,12 @@ public class Hello {
     public static void main(String[] args) {
 //        testBool();
 //        testMax();
+//        testAdd();
 //        testArray();
 //        testUser();
-        testGrade();
+//        testGrade();
 //        testPointer();
+        testChangeUser();
     }
 
     public static void testBool() {
@@ -111,6 +125,10 @@ public class Hello {
         int max = JnaLibrary.INSTANCE.max(100, 200);
         // out: 200
         System.out.println(max);
+    }
+
+    public static void testAdd() {
+        System.out.println(JnaLibrary.INSTANCE.add(11, 19));
     }
 
     public static void testArray() {
@@ -130,9 +148,9 @@ public class Hello {
 //        JnaLibrary.User.UserValue user1 = new JnaLibrary.User.UserValue("user222", 176, 62.4);
 //        JnaLibrary.Grade.GradeValue gradeValue = new JnaLibrary.Grade.GradeValue(user1, 18);
 //        JnaLibrary.INSTANCE.printGrade(gradeValue);
-        JnaLibrary.Grade.ByValue grade = new JnaLibrary.Grade.ByValue();
-        grade.setAge(18);
-        grade.setUser(new JnaLibrary.User.UserByReference("Xiaomi", 182, 55.7));
+
+        JnaLibrary.User.UserValue userValue = new JnaLibrary.User.UserValue("Xiaomi", 182, 55.7);
+        JnaLibrary.Grade.ByValue grade = new JnaLibrary.Grade.GradeByValue(userValue, 18);
         JnaLibrary.INSTANCE.printGrade(grade);
     }
 
@@ -151,5 +169,11 @@ public class Hello {
 //        arrInfo[0]: 0
 //        arrInfo[1]: 1
 //        arrInfo[2]: 2
+    }
+
+    public static void testChangeUser() {
+        JnaLibrary.User.UserValue user1 = new JnaLibrary.User.UserValue("user1", 186, 65.2);
+        JnaLibrary.User user = JnaLibrary.INSTANCE.changeUser(user1);
+        System.out.println(user);
     }
 }
