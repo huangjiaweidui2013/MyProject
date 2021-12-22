@@ -22,40 +22,40 @@ public class Hello {
 
         void testArray(short[] vals, int len);
 
-        void testStruct(ArrInfo arrInfo);
+        void testStruct(MyArrInfo myArrInfo);
 
-        void printUser(User.ByValue user);
+        void printUser(MyUser.ByValue user);
 
-        void printUserRef(User user);
+        void printUserRef(MyUser user);
 
         void printGrade(Structure.ByValue grade);
 
-        User changeUser(User user);
+        MyUser changeUser(MyUser user);
 
         @Data
         @Structure.FieldOrder({"name", "height", "weight"})
-        public static class User extends Structure {
+        public static class MyUser extends Structure {
 
-            public static class UserValue extends User implements Structure.ByValue {
+            public static class UserValue extends MyUser implements Structure.ByValue {
 
                 public UserValue(String name, int height, double weight) {
                     super(name, height, weight);
                 }
             }
 
-            public static class UserByReference extends User implements Structure.ByReference {
+            public static class UserByReference extends MyUser implements Structure.ByReference {
                 public UserByReference(String name, int height, double weight) {
                     super(name, height, weight);
                 }
             }
 
-            public User(String name, int height, double weight) {
+            public MyUser(String name, int height, double weight) {
                 this.name = name;
                 this.height = height;
                 this.weight = weight;
             }
 
-            public User() {
+            public MyUser() {
             }
 
             public String name;
@@ -68,11 +68,11 @@ public class Hello {
 
         @Data
         @Structure.FieldOrder({"vals", "len"})
-        public static class ArrInfo extends Structure {
+        public static class MyArrInfo extends Structure {
             public Pointer vals;
             public int len;
 
-            public ArrInfo(Pointer vals, int len) {
+            public MyArrInfo(Pointer vals, int len) {
                 this.vals = vals;
                 this.len = len;
             }
@@ -82,23 +82,23 @@ public class Hello {
         @Structure.FieldOrder({"user", "age"})
         public static class Grade extends Structure {
             public static class GradeByValue extends Grade implements Structure.ByValue {
-                public GradeByValue(User user, int age) {
+                public GradeByValue(MyUser user, int age) {
                     super(user, age);
                 }
             }
 
             public static class GradeByReference extends Grade implements Structure.ByReference {
-                public GradeByReference(User user, int age) {
+                public GradeByReference(MyUser user, int age) {
                     super(user, age);
                 }
             }
 
-            public Grade(User user, int age) {
+            public Grade(MyUser user, int age) {
                 this.user = user;
                 this.age = age;
             }
 
-            public User user;
+            public MyUser user;
             public int age;
         }
 
@@ -110,7 +110,7 @@ public class Hello {
 //        testAdd();
 //        testArray();
 //        testUser();
-//        testGrade();
+        testGrade();
 //        testPointer();
         testChangeUser();
     }
@@ -136,7 +136,7 @@ public class Hello {
     }
 
     public static void testUser() {
-        JnaLibrary.User.UserValue user1 = new JnaLibrary.User.UserValue("user1", 186, 65.2);
+        JnaLibrary.MyUser.UserValue user1 = new JnaLibrary.MyUser.UserValue("user1", 186, 65.2);
         JnaLibrary.INSTANCE.printUserRef(user1);
         JnaLibrary.INSTANCE.printUser(user1);
         // out:
@@ -149,7 +149,7 @@ public class Hello {
 //        JnaLibrary.Grade.GradeValue gradeValue = new JnaLibrary.Grade.GradeValue(user1, 18);
 //        JnaLibrary.INSTANCE.printGrade(gradeValue);
 
-        JnaLibrary.User.UserValue userValue = new JnaLibrary.User.UserValue("Xiaomi", 182, 55.7);
+        JnaLibrary.MyUser.UserValue userValue = new JnaLibrary.MyUser.UserValue("Xiaomi", 182, 55.7);
         JnaLibrary.Grade.ByValue grade = new JnaLibrary.Grade.GradeByValue(userValue, 18);
         JnaLibrary.INSTANCE.printGrade(grade);
     }
@@ -163,8 +163,8 @@ public class Hello {
         for (int i = 0; i < len; i++) {
             pointer.setShort(shortSize * i, (short) i);
         }
-        JnaLibrary.ArrInfo arrInfo = new JnaLibrary.ArrInfo(pointer, len);
-        JnaLibrary.INSTANCE.testStruct(arrInfo);
+        JnaLibrary.MyArrInfo myArrInfo = new JnaLibrary.MyArrInfo(pointer, len);
+        JnaLibrary.INSTANCE.testStruct(myArrInfo);
 // out
 //        arrInfo[0]: 0
 //        arrInfo[1]: 1
@@ -172,8 +172,10 @@ public class Hello {
     }
 
     public static void testChangeUser() {
-        JnaLibrary.User.UserValue user1 = new JnaLibrary.User.UserValue("user1", 186, 65.2);
-        JnaLibrary.User user = JnaLibrary.INSTANCE.changeUser(user1);
+
+        System.setProperty("jna.encoding", "GB2312");
+        JnaLibrary.MyUser.UserValue user1 = new JnaLibrary.MyUser.UserValue("user1", 186, 65.2);
+        JnaLibrary.MyUser user = JnaLibrary.INSTANCE.changeUser(user1);
         System.out.println(user);
     }
 }
