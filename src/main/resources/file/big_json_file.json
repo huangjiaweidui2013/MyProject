@@ -1,0 +1,1233 @@
+{
+    "type": "ZJX2021",
+    "extMin": [0, 1, 2],
+    "extMax": [0, 1, 2],
+    "ZcDbBlockTable": [{
+            "entity": [{
+                    "color": 915.3930184620141,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 505.4464526181379,
+                    "handld_low": 7663.869513372871,
+                    "normal": [1, 2, 3],
+                    "startPoint": [5480.333529417425, 4018.7043995329273, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 6773.63729177253,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 930.364124258094,
+                    "handld_low": 1941.8406540832589,
+                    "normal": [1, 2, 3],
+                    "startPoint": [9705.065792739842, 5460.597408941355, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 8379.71822965744,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5597.02359985807,
+                    "handld_low": 6842.140332087009,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8296.274978349169, 3512.431603891407, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 3077.768016701442,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5103.216068611416,
+                    "handld_low": 3573.253773640841,
+                    "normal": [1, 2, 3],
+                    "startPoint": [4260.304465579879, 3107.080414905723, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 7623.651519803598,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 7537.931675609032,
+                    "handld_low": 2744.245742080078,
+                    "normal": [1, 2, 3],
+                    "startPoint": [9584.592087593124, 3603.7743903009223, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 8720.449762225744,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 7326.778222965733,
+                    "handld_low": 5378.550044062649,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6695.498445408413, 211.95843879721176, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 9379.137623102251,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 1112.0238270063044,
+                    "handld_low": 9929.723822404305,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8531.511395221381, 1998.5733649812632, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 4202.700369732692,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 4485.753912310858,
+                    "handld_low": 750.9382356387728,
+                    "normal": [1, 2, 3],
+                    "startPoint": [4159.975575644169, 2318.1005775190756, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 6430.69244094198,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 6933.769828990268,
+                    "handld_low": 3713.3961336700117,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6617.851895988029, 939.0736081543915, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 4228.695729122764,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 4624.3989967275065,
+                    "handld_low": 7591.686254840326,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8534.455476396615, 6493.049408570783, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 6472.636042608283,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 4322.2546677237215,
+                    "handld_low": 9507.838087368535,
+                    "normal": [1, 2, 3],
+                    "startPoint": [2122.751290450308, 7582.238740331391, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 9741.583996634849,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 1040.5727986574752,
+                    "handld_low": 7684.970585064655,
+                    "normal": [1, 2, 3],
+                    "startPoint": [9198.515920797294, 5672.203752605709, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 2781.3547056540533,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 4268.849322399261,
+                    "handld_low": 7740.359095638467,
+                    "normal": [1, 2, 3],
+                    "startPoint": [5122.405421998426, 4528.779244986778, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 9469.78295822012,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 6472.965008788033,
+                    "handld_low": 7828.811772752258,
+                    "normal": [1, 2, 3],
+                    "startPoint": [2175.1294990943848, 6328.140266737875, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 5795.582835662748,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 2336.898625052053,
+                    "handld_low": 8534.05481256159,
+                    "normal": [1, 2, 3],
+                    "startPoint": [795.6100252982645, 3915.5955066374104, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 1162.262651184559,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 7660.31190351445,
+                    "handld_low": 748.270568251399,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6359.048316262144, 8034.653074927124, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 356.054107453031,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5113.854488192929,
+                    "handld_low": 9589.966500654988,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8386.198792934874, 8072.988209962995, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 7211.3124481429095,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 7427.054580444986,
+                    "handld_low": 7420.323337908724,
+                    "normal": [1, 2, 3],
+                    "startPoint": [3326.871794343623, 6652.407925980529, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 6013.380225351773,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 1874.341477841318,
+                    "handld_low": 2145.4095468327428,
+                    "normal": [1, 2, 3],
+                    "startPoint": [5433.555178815271, 5540.887228926784, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 1701.721079037365,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 4832.507463435183,
+                    "handld_low": 7086.18167835156,
+                    "normal": [1, 2, 3],
+                    "startPoint": [4475.814697614687, 1937.5283305708936, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 307.5660581298101,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 3541.456822249778,
+                    "handld_low": 2662.498961920745,
+                    "normal": [1, 2, 3],
+                    "startPoint": [4844.760814668501, 979.5847136768443, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 1877.180005140091,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 3273.052897653944,
+                    "handld_low": 5519.761461403754,
+                    "normal": [1, 2, 3],
+                    "startPoint": [1002.1450801240272, 1312.2922201642284, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 5623.283074883725,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5269.177261209647,
+                    "handld_low": 5702.45860573782,
+                    "normal": [1, 2, 3],
+                    "startPoint": [9805.37664895452, 975.4724381763402, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 8150.320585580126,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 743.3285004632572,
+                    "handld_low": 5445.324741265317,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8596.883115056758, 8566.866805622913, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 9532.3191006289,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 4208.344768551152,
+                    "handld_low": 6978.315089896595,
+                    "normal": [1, 2, 3],
+                    "startPoint": [5451.369406021479, 9237.677911799243, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 2955.6184737702283,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 6768.191661167625,
+                    "handld_low": 8019.027686706869,
+                    "normal": [1, 2, 3],
+                    "startPoint": [9324.759432850396, 4392.462647307811, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 1380.1167556508553,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5740.851652762765,
+                    "handld_low": 5095.231132241271,
+                    "normal": [1, 2, 3],
+                    "startPoint": [9474.552281870267, 5545.181272646411, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 589.2306011644988,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 2369.0983941476893,
+                    "handld_low": 9455.463494922753,
+                    "normal": [1, 2, 3],
+                    "startPoint": [9613.052130753444, 3170.4363517503853, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 6219.909561217838,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5931.098756781183,
+                    "handld_low": 8259.365086127911,
+                    "normal": [1, 2, 3],
+                    "startPoint": [7511.617068842446, 3905.106355390823, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 1612.664100802985,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5414.280189528081,
+                    "handld_low": 8919.815940352059,
+                    "normal": [1, 2, 3],
+                    "startPoint": [1791.3516692341525, 1430.9765163681377, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 2539.7970266617453,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 4691.578011316137,
+                    "handld_low": 5069.439174245961,
+                    "normal": [1, 2, 3],
+                    "startPoint": [5157.170899281262, 9621.80997244723, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 6115.295682284913,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5940.919646378935,
+                    "handld_low": 228.7047245032614,
+                    "normal": [1, 2, 3],
+                    "startPoint": [404.48216770229027, 202.61053307414124, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 6090.570465090181,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 8512.807386690847,
+                    "handld_low": 238.02768831568733,
+                    "normal": [1, 2, 3],
+                    "startPoint": [1910.1643028958758, 9784.780041100375, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 8112.669109722698,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 8679.766848757097,
+                    "handld_low": 1499.2154201454255,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6312.825728680529, 9234.606854365386, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 6561.829776779331,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 7170.312596092424,
+                    "handld_low": 91.07262162297846,
+                    "normal": [1, 2, 3],
+                    "startPoint": [4257.9630052910825, 1524.0917420177213, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 7362.9706276801735,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 1739.9808068558275,
+                    "handld_low": 228.23466102355528,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6172.59144876545, 2204.450104575302, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 1958.8351334251408,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 9977.714759517285,
+                    "handld_low": 4364.711210014034,
+                    "normal": [1, 2, 3],
+                    "startPoint": [4651.622276996025, 1249.3927979815223, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 6954.125265797247,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 6937.277321062376,
+                    "handld_low": 1226.5710016169373,
+                    "normal": [1, 2, 3],
+                    "startPoint": [1559.743695776562, 719.2033587365065, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 1921.7291301719197,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 1571.203118831267,
+                    "handld_low": 89.77381923827576,
+                    "normal": [1, 2, 3],
+                    "startPoint": [339.38800301102077, 2007.4997682012797, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 2970.845312073438,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 3815.893418170939,
+                    "handld_low": 7009.199918367382,
+                    "normal": [1, 2, 3],
+                    "startPoint": [7103.2770487187045, 1661.2435444015239, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 2552.6594579852035,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 8334.074425278348,
+                    "handld_low": 7189.188309587684,
+                    "normal": [1, 2, 3],
+                    "startPoint": [4194.137389631131, 5621.306215085604, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 2498.2037582406833,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 3299.8001475247074,
+                    "handld_low": 3570.340491035667,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6395.416950460147, 8475.344149565994, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 2756.558843213738,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 6129.0758796984765,
+                    "handld_low": 306.1482062021226,
+                    "normal": [1, 2, 3],
+                    "startPoint": [7866.608615641763, 8996.750132098961, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 5040.671109761993,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 9917.668098490785,
+                    "handld_low": 3647.2187588642514,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6048.531544293592, 6886.392118489949, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 3870.7751211047503,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 510.77893457486033,
+                    "handld_low": 5856.637873263786,
+                    "normal": [1, 2, 3],
+                    "startPoint": [3173.398293589944, 7024.166553179474, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 299.0558616094785,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 2517.1975530110435,
+                    "handld_low": 7577.816595125113,
+                    "normal": [1, 2, 3],
+                    "startPoint": [4502.719563897966, 9597.423547215385, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 8201.571445548305,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 7831.16137520504,
+                    "handld_low": 415.4370283386344,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8721.579082728616, 7005.890901796905, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 8099.694034653851,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 686.7096429430009,
+                    "handld_low": 2445.40432564327,
+                    "normal": [1, 2, 3],
+                    "startPoint": [2517.0446919171786, 1349.6732883458628, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 7777.06909475353,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 1201.2287000950662,
+                    "handld_low": 6387.893689975737,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6796.420270463239, 5195.08850948335, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 8339.061331601677,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 8135.744164071558,
+                    "handld_low": 417.23185429010323,
+                    "normal": [1, 2, 3],
+                    "startPoint": [5695.403009722054, 4714.717219075501, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 6473.176850956153,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 8983.4017745174,
+                    "handld_low": 3109.7415765601445,
+                    "normal": [1, 2, 3],
+                    "startPoint": [7692.363026509405, 5544.376323426072, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 5102.485531809751,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 9983.474453793118,
+                    "handld_low": 9848.674501543232,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6930.393185074037, 799.5472500417766, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 8009.293107949592,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5998.283693073182,
+                    "handld_low": 7704.406707971998,
+                    "normal": [1, 2, 3],
+                    "startPoint": [428.6077053100168, 4381.000325356879, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 7928.850486341289,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 226.90195052652905,
+                    "handld_low": 8940.898105668843,
+                    "normal": [1, 2, 3],
+                    "startPoint": [3851.964570577733, 6125.84726086324, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 13.246391324160944,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 2851.319797293201,
+                    "handld_low": 6393.25341604996,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6419.185616088583, 4723.5475350497745, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 8596.35780145693,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 104.19566476324027,
+                    "handld_low": 3394.5083319677137,
+                    "normal": [1, 2, 3],
+                    "startPoint": [5829.940869785556, 4023.3237575503313, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 3320.427537260299,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 6417.04367640977,
+                    "handld_low": 6711.948079380817,
+                    "normal": [1, 2, 3],
+                    "startPoint": [5704.233457742176, 7140.013212913547, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 6151.066787445136,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 1157.5648548158902,
+                    "handld_low": 1759.6798951143955,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8919.884219794718, 3463.4723128998235, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 3332.020948179062,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 2539.578153136999,
+                    "handld_low": 6979.713925081564,
+                    "normal": [1, 2, 3],
+                    "startPoint": [9116.620100164722, 4256.445150369657, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 9324.838887413302,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 6591.354970424006,
+                    "handld_low": 5992.203172035022,
+                    "normal": [1, 2, 3],
+                    "startPoint": [9510.579095241425, 1145.6367740168837, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 1074.5391710508102,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 9177.587124892298,
+                    "handld_low": 6173.094398561811,
+                    "normal": [1, 2, 3],
+                    "startPoint": [7859.613838947252, 6628.439675465219, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 408.4806577788369,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 6102.513867067254,
+                    "handld_low": 9313.23294689738,
+                    "normal": [1, 2, 3],
+                    "startPoint": [7010.3084663603995, 403.90650962107253, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 9571.65365074709,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 6580.9894844184,
+                    "handld_low": 4378.588727119564,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8791.693348841127, 4084.907312538416, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 256.5706704545778,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 7351.336052192273,
+                    "handld_low": 8848.076922676973,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8410.965674739344, 7984.820759463451, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 2284.9831636444483,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 8457.688651747872,
+                    "handld_low": 7577.05227174079,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6919.9007278177005, 8776.359230987708, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 881.198396732934,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 8290.846285850042,
+                    "handld_low": 9977.088748188275,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8238.03062871429, 2586.771667747599, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 5259.6886101246455,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 574.8811750622007,
+                    "handld_low": 6516.208408347325,
+                    "normal": [1, 2, 3],
+                    "startPoint": [9640.590497356108, 971.4127618327684, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 1302.3885690113602,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 9864.97060605088,
+                    "handld_low": 1941.9491842431369,
+                    "normal": [1, 2, 3],
+                    "startPoint": [3505.921459913535, 6168.421296883277, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 811.3235159958521,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 7725.931139732973,
+                    "handld_low": 5756.3946819644825,
+                    "normal": [1, 2, 3],
+                    "startPoint": [1864.5506428065362, 2639.383534900234, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 8504.359797225694,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 6331.652368447918,
+                    "handld_low": 7366.7991964712855,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6658.875430650805, 5122.670743052941, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 5231.541272637544,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 6646.3656760889135,
+                    "handld_low": 8060.395817913454,
+                    "normal": [1, 2, 3],
+                    "startPoint": [9832.025300836234, 5559.150539569136, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 8821.229518478782,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 8411.443196468794,
+                    "handld_low": 110.62566780777883,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8925.17181712647, 6453.2124763733755, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 5222.353494500018,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 7228.513386677026,
+                    "handld_low": 603.7975779080007,
+                    "normal": [1, 2, 3],
+                    "startPoint": [9953.17490920731, 3161.550939873349, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 4446.851052865048,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 2380.2322130455077,
+                    "handld_low": 7681.002086377704,
+                    "normal": [1, 2, 3],
+                    "startPoint": [416.36910895079484, 7842.265688728545, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 1273.3093113044958,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 1492.1948885755032,
+                    "handld_low": 2001.862415217689,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8973.239611900415, 8632.308597288698, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 4415.904958159313,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 423.29467619397377,
+                    "handld_low": 3507.0044459642304,
+                    "normal": [1, 2, 3],
+                    "startPoint": [2063.6289531688235, 7001.738469209336, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 1686.1197156764695,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 4228.4465893808365,
+                    "handld_low": 3907.881568508398,
+                    "normal": [1, 2, 3],
+                    "startPoint": [3012.609927053936, 5594.036932521492, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 2003.206465170304,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5384.659882268959,
+                    "handld_low": 6169.4036460309135,
+                    "normal": [1, 2, 3],
+                    "startPoint": [3031.8354790074795, 7778.02961141168, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 8671.010300876036,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 9335.531041780396,
+                    "handld_low": 3492.922882348798,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6204.978044220765, 3599.5941035587507, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 9482.66735638164,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 7350.026516341175,
+                    "handld_low": 3478.8058442762217,
+                    "normal": [1, 2, 3],
+                    "startPoint": [7551.927337184967, 9236.530639315102, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 163.86257144837325,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5683.726104458036,
+                    "handld_low": 6055.777418538708,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8667.691771296964, 4886.637561496496, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 3305.006199351427,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 3193.5173275775664,
+                    "handld_low": 8618.318935470204,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8656.828059574405, 1270.3388293629926, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 4549.609566867577,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 8231.10006582271,
+                    "handld_low": 2453.842897901571,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8084.680548172319, 4577.508971200539, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 5503.890014471139,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 730.0715593971908,
+                    "handld_low": 8748.82813493253,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6621.944681725028, 1324.7953690577208, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 4163.3117949619145,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 7201.453722714737,
+                    "handld_low": 8141.049534415172,
+                    "normal": [1, 2, 3],
+                    "startPoint": [7242.361532292558, 6503.746759028, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 1314.724565948322,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 909.1361169591938,
+                    "handld_low": 7115.54800176574,
+                    "normal": [1, 2, 3],
+                    "startPoint": [5054.071423517661, 2552.4540804169114, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 644.964091996596,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 6843.832463531973,
+                    "handld_low": 8029.401656999533,
+                    "normal": [1, 2, 3],
+                    "startPoint": [192.52350070141478, 5865.92294675366, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 5161.067975792578,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 8555.669529124554,
+                    "handld_low": 2179.012634709996,
+                    "normal": [1, 2, 3],
+                    "startPoint": [2630.5479416843823, 3340.5134730760246, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 6347.775758970881,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 7817.772708186931,
+                    "handld_low": 9869.131486954842,
+                    "normal": [1, 2, 3],
+                    "startPoint": [4364.359629369749, 7313.814001029454, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 2184.121225868116,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 536.7014963286155,
+                    "handld_low": 9288.010744260078,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8082.853637054237, 1694.3398683754774, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 974.0769333050214,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 4068.24545622812,
+                    "handld_low": 3613.013951086025,
+                    "normal": [1, 2, 3],
+                    "startPoint": [2732.832709580062, 9087.003229722317, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 5995.741767740629,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 462.440687725334,
+                    "handld_low": 5363.497708691637,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6795.83005015864, 8707.521011481544, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 8400.997652506203,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 7428.876346030206,
+                    "handld_low": 2568.437235333648,
+                    "normal": [1, 2, 3],
+                    "startPoint": [5175.91964872404, 6461.034857411257, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 4240.905864767904,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 8708.088692790789,
+                    "handld_low": 6699.698746590733,
+                    "normal": [1, 2, 3],
+                    "startPoint": [537.0728623811772, 2373.1499696059823, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 1753.8182859885553,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5662.44935796465,
+                    "handld_low": 5853.0244365462095,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8303.778723454812, 8799.569551270899, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 6558.834395458537,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 2785.228257141009,
+                    "handld_low": 6821.230975708783,
+                    "normal": [1, 2, 3],
+                    "startPoint": [5553.608997828128, 3646.2953645124317, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 3713.748428205065,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 2536.2347870616254,
+                    "handld_low": 9593.830763668884,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8484.503047846592, 6450.293356192414, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 7611.55181582501,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5050.3155955107195,
+                    "handld_low": 1154.1493374354884,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6318.910574065245, 9088.611044288476, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 6865.5420069582915,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 439.8139355381947,
+                    "handld_low": 4815.551523893743,
+                    "normal": [1, 2, 3],
+                    "startPoint": [9471.159881623618, 6004.466759089908, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 4764.2808506386,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 6094.036851680147,
+                    "handld_low": 9646.599406701416,
+                    "normal": [1, 2, 3],
+                    "startPoint": [2357.983928316708, 28.797738535947246, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 5686.658964025381,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 6369.576475596143,
+                    "handld_low": 3450.153397536083,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8181.763777134097, 4061.13844412334, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 2794.7733107408126,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 3622.014689768992,
+                    "handld_low": 7264.779325210643,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8128.37005318784, 4154.414743115828, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 7172.781323185506,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 3492.960892746907,
+                    "handld_low": 5300.523834388934,
+                    "normal": [1, 2, 3],
+                    "startPoint": [4807.464643958916, 1622.556703071295, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 9500.725847580015,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 8458.663432871954,
+                    "handld_low": 6126.9259169566685,
+                    "normal": [1, 2, 3],
+                    "startPoint": [2228.2521716301485, 7289.879121490155, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 2734.796674009878,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 1414.0561230442195,
+                    "handld_low": 67.01989715424128,
+                    "normal": [1, 2, 3],
+                    "startPoint": [4815.567288958759, 9153.844772417411, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 7369.318530651345,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 3757.3375568787537,
+                    "handld_low": 5838.0653997502095,
+                    "normal": [1, 2, 3],
+                    "startPoint": [3108.67800072277, 7072.126969806614, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 6071.486320179298,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5418.895319987547,
+                    "handld_low": 1192.316908433898,
+                    "normal": [1, 2, 3],
+                    "startPoint": [4645.300389279796, 8755.450393991241, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 9455.448392101634,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 7387.883250298467,
+                    "handld_low": 48.57428894447846,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6885.513095336248, 5850.378807577062, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 3433.0132620633203,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5893.424353242696,
+                    "handld_low": 5822.113596875738,
+                    "normal": [1, 2, 3],
+                    "startPoint": [2319.032098913316, 6940.373118256931, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 7451.375799199632,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 4635.227205540284,
+                    "handld_low": 5358.693366828035,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6209.822051742047, 2732.0118462738683, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 6787.017970570627,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 4570.727834435515,
+                    "handld_low": 5673.667323344197,
+                    "normal": [1, 2, 3],
+                    "startPoint": [1944.6609431928075, 3330.114070356185, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 7567.571078262956,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 2148.8187053816364,
+                    "handld_low": 2188.7951186994583,
+                    "normal": [1, 2, 3],
+                    "startPoint": [1925.795476744463, 7876.204491841238, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 1657.107790601825,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 848.9104266749803,
+                    "handld_low": 2138.7262011274233,
+                    "normal": [1, 2, 3],
+                    "startPoint": [3582.2010691723826, 5865.308865059926, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 4511.030294362478,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 9933.005213217884,
+                    "handld_low": 8172.440338903661,
+                    "normal": [1, 2, 3],
+                    "startPoint": [5417.255041253855, 285.5560733738949, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 9129.390479743211,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 3980.579142450129,
+                    "handld_low": 141.30038794128663,
+                    "normal": [1, 2, 3],
+                    "startPoint": [9386.40045559559, 7582.002218957524, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 5552.990738256768,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5994.383323635929,
+                    "handld_low": 828.3302301083395,
+                    "normal": [1, 2, 3],
+                    "startPoint": [5142.562223335607, 1129.3083245582748, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 2054.3585600994284,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 1103.9176899500546,
+                    "handld_low": 5774.3003981482525,
+                    "normal": [1, 2, 3],
+                    "startPoint": [3796.0941817296944, 8876.628835903859, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 8713.84370272982,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5026.73494423943,
+                    "handld_low": 3831.693508956652,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6440.06697903023, 1497.3734913617286, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 4678.010742266218,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 5779.899735477666,
+                    "handld_low": 3733.9799697037865,
+                    "normal": [1, 2, 3],
+                    "startPoint": [1079.6706514042087, 9747.381702329407, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 531.3751611909412,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 4711.458577939599,
+                    "handld_low": 7020.194893864918,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6839.963285582828, 8160.621880609898, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 717.9984335501543,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 1617.5232170586528,
+                    "handld_low": 270.25200644178346,
+                    "normal": [1, 2, 3],
+                    "startPoint": [2305.5255371834205, 563.4029670963503, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 7072.778671317262,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 9366.842997854825,
+                    "handld_low": 4500.153187268802,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6962.687569100353, 5909.558097597481, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 9689.435439251556,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 3687.579830621742,
+                    "handld_low": 3518.4504880652044,
+                    "normal": [1, 2, 3],
+                    "startPoint": [6108.964905856139, 6314.031534582432, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }, {
+            "entity": [{
+                    "color": 4935.940097480249,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 3849.7311511608154,
+                    "handld_low": 3812.933454916173,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8769.220492780189, 6151.6538948338275, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 4543.72316127871,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 505.16046338195173,
+                    "handld_low": 5449.363388065649,
+                    "normal": [1, 2, 3],
+                    "startPoint": [2076.2216076280147, 6397.313138413611, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 8377.323180271693,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 885.9915371223536,
+                    "handld_low": 6307.405505671366,
+                    "normal": [1, 2, 3],
+                    "startPoint": [2136.452597980939, 239.44521735438818, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 4406.428622798606,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 8442.860887622472,
+                    "handld_low": 2576.0070230475417,
+                    "normal": [1, 2, 3],
+                    "startPoint": [1546.8105020827395, 220.51344250764603, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 1599.6305043641767,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 2000.876416755809,
+                    "handld_low": 9652.049599229184,
+                    "normal": [1, 2, 3],
+                    "startPoint": [8174.046782332642, 2330.587393671235, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 5412.333797590313,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 1342.7609473082402,
+                    "handld_low": 7325.55626509788,
+                    "normal": [1, 2, 3],
+                    "startPoint": [813.4059182162213, 3137.129094044868, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 7110.813589072784,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 7587.211692579841,
+                    "handld_low": 6100.688742652765,
+                    "normal": [1, 2, 3],
+                    "startPoint": [3622.1279877365287, 1082.1295823567057, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 5893.868046376683,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 1929.2067645328636,
+                    "handld_low": 9492.198351657884,
+                    "normal": [1, 2, 3],
+                    "startPoint": [4521.036269702819, 9497.728820942599, 0],
+                    "type": "ZcDbLine"
+                }, {
+                    "color": 8186.707694021885,
+                    "endPoint": [1, 2, 3],
+                    "handld_high": 1570.0474218369386,
+                    "handld_low": 8771.190406211284,
+                    "normal": [1, 2, 3],
+                    "startPoint": [7347.014369185544, 6070.366275534528, 0],
+                    "type": "ZcDbLine"
+                }
+            ],
+            "name": "_DIMX",
+            "type": "BlockTableRecord"
+        }
+    ],
+    "ZcDbViewPortTable": [{
+            "centerPoint": {
+                "x": 2071.1351174369174,
+                "y": 9263.163375666722
+            },
+            "handld_high": 1340.0513411661486,
+            "handld_low": 271.01401674649253,
+            "lensLength": 331.8643474221583,
+            "name": "Active",
+            "target": [1, 2, 3],
+            "type": "ZcDbViewPortTableRecord",
+            "viewDirection": [1, 2, 3],
+            "viewHeight": 3201.984244585686,
+            "viewWidth": 3813.8252236085
+        }, {
+            "centerPoint": {
+                "x": 5160.325238494388,
+                "y": 9036.817605377231
+            },
+            "handld_high": 6450.932523205406,
+            "handld_low": 6012.490754817671,
+            "lensLength": 3166.9271651382737,
+            "name": "Active",
+            "target": [1, 2, 3],
+            "type": "ZcDbViewPortTableRecord",
+            "viewDirection": [1, 2, 3],
+            "viewHeight": 7077.306566832965,
+            "viewWidth": 1520.3888165482338
+        }
+    ]
+}
