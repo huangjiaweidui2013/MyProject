@@ -20,6 +20,7 @@ import java.util.List;
  */
 public class ParseJson {
     public static void main(String[] args) {
+//        parseJsonByOrder();
         parseJsonPart();
     }
 
@@ -126,7 +127,7 @@ public class ParseJson {
         List<DwgBlockEntity> entityList = new ArrayList<>();
         JSONReader jsonReader = new JSONReader(new InputStreamReader(inputStream));
         jsonReader.startObject();
-        StringBuilder sb = new StringBuilder();
+        StringBuilder fileExtra = new StringBuilder();
         while (jsonReader.hasNext()) {
             String key = jsonReader.readString();
             System.out.println(key);
@@ -134,22 +135,37 @@ public class ParseJson {
                 jsonReader.startArray();
                 long i = 0;
                 while (jsonReader.hasNext()) {
+                    jsonReader.startObject();
                     String blockId = IdUtil.objectId();
-                    String block = jsonReader.readString();
-                    System.out.println(block);
-                    DwgBlockEntity entity = DwgBlockEntity.builder()
-                            .entityType("ZcDbBlockTable")
-                            .content(block)
-                            .pid(blockId)
-                            .build();
-                    entityList.add(entity);
                     DwgBlock dwgBlock = DwgBlock.builder()
                             .blockType("ZcDbBlockTable")
                             .blockIndex(++i)
-                            .id(block)
+                            .id(blockId)
                             .pid(id)
                             .build();
+                    StringBuilder blockExtra = new StringBuilder();
+                    while (jsonReader.hasNext()) {
+                        String blockKey = jsonReader.readString();
+                        if ("entity".equalsIgnoreCase(blockKey)) {
+                            jsonReader.startArray();
+                            while (jsonReader.hasNext()) {
+                                DwgBlockEntity entity = DwgBlockEntity.builder()
+                                        .entityType("ZcDbBlockTable")
+                                        .content(jsonReader.readString())
+                                        .pid(blockId)
+                                        .build();
+                                entityList.add(entity);
+                            }
+                            jsonReader.endArray();
+                        } else {
+                            //不需要的数据，也必须读，可以不做处理
+                            String blockStr = blockKey + ":" + jsonReader.readString();
+                            blockExtra.append(StringUtils.isEmpty(blockExtra.toString()) ? blockStr : "," + blockStr);
+                        }
+                    }
+                    dwgBlock.setExtra(blockExtra.toString());
                     blockList.add(dwgBlock);
+                    jsonReader.endObject();
                 }
                 jsonReader.endArray();
             } else if ("ZcDbViewPortTable".equalsIgnoreCase(key)) {
@@ -177,11 +193,12 @@ public class ParseJson {
                 //不需要的数据，也必须读，可以不做处理
                 String readString = key + ":" + jsonReader.readString();
                 System.out.println(readString);
-                sb.append(StringUtils.isEmpty(sb.toString()) ? readString : "," + readString);
+                fileExtra.append(StringUtils.isEmpty(fileExtra.toString()) ? readString : "," + readString);
             }
         }
         jsonReader.endObject();
-        System.out.println(sb);
+        System.out.println(fileExtra);
+        dwgFile.setExtra(fileExtra.toString());
         System.out.println("block size: " + blockList.size());
         System.out.println("entity size: " + entityList.size());
     }

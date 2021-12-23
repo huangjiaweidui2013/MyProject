@@ -1,7 +1,6 @@
 package com.example.springbootsecurity.research;
 
 import cn.hutool.core.util.RandomUtil;
-import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.DoubleNode;
@@ -9,10 +8,10 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.fasterxml.jackson.databind.node.TextNode;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Random;
+import java.time.Duration;
+import java.time.Instant;
 
 /**
  * @author: huang lang
@@ -20,8 +19,18 @@ import java.util.Random;
  * @date: 2021/12/22 17:49
  */
 public class GenerateJson {
+
+    private static final int BLOCK_TABLE_SIZE = 500;
+
+    private static final int VIEW_PORT_TABLE_SIZE = 200;
+
+    private static final int ENTITY_SIZE_MIN = 200;
+
+    private static final int ENTITY_SIZE_MAX = 500;
+
     public static void main(String[] args) throws IOException {
-        File file = new File("big_json_file.json");
+        Instant start = Instant.now();
+        File file = new File("super_big_json_file.json");
         ObjectMapper mapper = new ObjectMapper();
         ObjectNode root = mapper.createObjectNode();
         root.put("type", "ZJX2021");
@@ -33,8 +42,8 @@ public class GenerateJson {
         root.set("extMax", arrayNode1);
 
         ArrayNode blockArray = mapper.createArrayNode();
-        for (int i = 0; i < 28; i++) {
-            int randomInt = RandomUtil.randomInt(1, 10);
+        for (int i = 0; i < BLOCK_TABLE_SIZE; i++) {
+            int randomInt = RandomUtil.randomInt(ENTITY_SIZE_MIN, ENTITY_SIZE_MAX);
             ObjectNode tmpObj = mapper.createObjectNode();
             ArrayNode tmpArr = mapper.createArrayNode();
             for (int j = 0; j < randomInt; j++) {
@@ -48,14 +57,14 @@ public class GenerateJson {
         root.set("ZcDbBlockTable", blockArray);
 
         ArrayNode viewArray = mapper.createArrayNode();
-        for (int i = 0; i < 2; i++) {
+        for (int i = 0; i < VIEW_PORT_TABLE_SIZE; i++) {
             viewArray.add(generateViewPort(mapper));
         }
         root.set("ZcDbViewPortTable", viewArray);
 
         mapper.writeValue(new FileOutputStream(file), root);
-
-
+        Instant end = Instant.now();
+        System.out.println("生成文件耗时(ms): " + Duration.between(start, end).toMillis());
     }
 
     public static ObjectNode generateEntity(ObjectMapper mapper) {

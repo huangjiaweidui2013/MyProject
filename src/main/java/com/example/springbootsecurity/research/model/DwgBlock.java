@@ -40,4 +40,9 @@ public class DwgBlock extends BaseEntity {
      */
     private Long blockIndex;
 
+    /**
+     * 附加内容
+     */
+    private String extra;
+
 }
