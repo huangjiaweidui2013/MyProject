@@ -6,7 +6,7 @@ import com.example.springbootsecurity.demo.FontDemo;
 import com.example.springbootsecurity.research.model.DwgBlock;
 import com.example.springbootsecurity.research.model.DwgBlockEntity;
 import com.example.springbootsecurity.research.model.DwgFile;
-import org.springframework.util.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -159,7 +159,7 @@ public class ParseJson {
                             jsonReader.endArray();
                         } else {
                             //不需要的数据，也必须读，可以不做处理
-                            String blockStr = blockKey + ":" + jsonReader.readString();
+                            String blockStr = wrapReadString(blockKey) + ":" + wrapReadString(jsonReader.readString());
                             blockExtra.append(StringUtils.isEmpty(blockExtra.toString()) ? blockStr : "," + blockStr);
                         }
                     }
@@ -191,7 +191,7 @@ public class ParseJson {
                 jsonReader.endArray();
             } else {
                 //不需要的数据，也必须读，可以不做处理
-                String readString = key + ":" + jsonReader.readString();
+                String readString = wrapReadString(key) + ":" + wrapReadString(jsonReader.readString());
                 System.out.println(readString);
                 fileExtra.append(StringUtils.isEmpty(fileExtra.toString()) ? readString : "," + readString);
             }
@@ -201,5 +201,14 @@ public class ParseJson {
         dwgFile.setExtra(fileExtra.toString());
         System.out.println("block size: " + blockList.size());
         System.out.println("entity size: " + entityList.size());
+    }
+
+    private static String wrapReadString(String s) {
+        if (StringUtils.isNotEmpty(s)) {
+            if (!StringUtils.isNumeric(s) && !s.startsWith("[") && !s.startsWith("{")) {
+                return "\"" + s + "\"";
+            }
+        }
+        return s;
     }
 }
