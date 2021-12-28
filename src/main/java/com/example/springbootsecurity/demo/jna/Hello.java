@@ -110,7 +110,8 @@ public class Hello {
 //        testAdd();
 //        testArray();
 //        testUser();
-        testGrade();
+//        testGrade();
+//        System.out.println("testGrade: " + testGrade());
 //        testPointer();
         testChangeUser();
     }
@@ -144,7 +145,7 @@ public class Hello {
 //        printUser user: user1 height: 186 weight: 65.20
     }
 
-    public static void testGrade() {
+    public static String testGrade() {
 //        JnaLibrary.User.UserValue user1 = new JnaLibrary.User.UserValue("user222", 176, 62.4);
 //        JnaLibrary.Grade.GradeValue gradeValue = new JnaLibrary.Grade.GradeValue(user1, 18);
 //        JnaLibrary.INSTANCE.printGrade(gradeValue);
@@ -152,6 +153,7 @@ public class Hello {
         JnaLibrary.MyUser.UserValue userValue = new JnaLibrary.MyUser.UserValue("Xiaomi", 182, 55.7);
         JnaLibrary.Grade.ByValue grade = new JnaLibrary.Grade.GradeByValue(userValue, 18);
         JnaLibrary.INSTANCE.printGrade(grade);
+        return grade.toString();
     }
 
 

@@ -16,7 +16,8 @@ public class JnaDemoLibraryUtil {
 //        testAdd();
 //        testArray();
 //        testUser();
-//        testGrade();
+        testGrade();
+        System.out.println("testGrade: " + testGrade());
 //        testPointer();
 //        testChangeUser();
         testChangeUser("xiao hua", 17, 54.6);
@@ -94,10 +95,11 @@ public class JnaDemoLibraryUtil {
      * @date: 2021/12/21 20:20
      * @description:
      */
-    public static void testGrade() {
+    public static String testGrade() {
         JnaDemoLibrary.User.UserValue userValue = new JnaDemoLibrary.User.UserValue("Xiaomi", 182, 55.7);
         JnaDemoLibrary.Grade.ByValue grade = new JnaDemoLibrary.Grade.GradeByValue(userValue, 18);
         JnaDemoLibrary.INSTANCE.printGrade(grade);
+        return grade.toString();
     }
 
 
@@ -118,6 +120,13 @@ public class JnaDemoLibraryUtil {
         System.out.println(user);
     }
 
+    /**
+     * @param name:
+     * @param height:
+     * @param weight:
+     * @return: void
+     * @description: 测试
+     */
     public static void testChangeUser(String name, int height, double weight) {
         JnaDemoLibrary.User.UserValue user1 = new JnaDemoLibrary.User.UserValue(name, height, weight);
         JnaDemoLibrary.User user = JnaDemoLibrary.INSTANCE.changeUser(user1);
