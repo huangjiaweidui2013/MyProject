@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
+import java.time.Duration;
+import java.time.Instant;
 import java.util.Date;
 
 
@@ -30,10 +32,11 @@ public class HdfsDemo {
 //        appendFile("test_file2.txt", "这里的内容是为了测试是否能追加HDFS上的文件内容");
 //        rename("/test/root/huang3", "/test/root/huang123456789");
 //        getFileStatus(BASE_DIR + "/text_create.txt");
-//        copyToHDFS("D:\\java_tools\\apache-maven-3.6.1-bin.zip", "/test/root/huang123456789");
+//        copyToHDFS("D:\\java_tools\\nacos-server-2.0.3.zip", "/test/root/huang123456789");
+        copyToLocal("/test/root/huang123456789/nacos-server-2.0.3.zip", "D:\\nacos-server-2.0.3.zip");
 //        copyToHDFS("D:\\java_tools\\nacos-server-2.0.3.zip", "/test/root/huang2");
 //        appendToFile(BASE_DIR + "/" + "test_file2.txt", "/n 再次追加文件内容，123456789，China！");
-        deleteFile("/test/root/huang123456789/apache-maven-3.6.1-bin.zip");
+//        deleteFile("/test/root/huang123456789/apache-maven-3.6.1-bin.zip");
     }
 
     public static FileSystem getFileSystem() {
@@ -197,12 +200,38 @@ public class HdfsDemo {
      * @param destPath      HDFS目标路径
      */
     public static void copyToHDFS(String localFilePath, String destPath) {
+        Instant start = Instant.now();
         FileSystem fs = getFileSystem();
         Path src = new Path(localFilePath);
         Path dst = new Path(destPath);
         try {
             fs.copyFromLocalFile(src, dst);
+            fs.close();
             log.info("copy from local done.");
+            Instant end = Instant.now();
+            log.info("上传文件至HDFS系统，耗时(ms): " + Duration.between(start, end).toMillis());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 拷贝HDFS上的文件至本地
+     *
+     * @param remoteFilePath
+     * @param localFilePath
+     */
+    public static void copyToLocal(String remoteFilePath, String localFilePath) {
+        Instant start = Instant.now();
+        FileSystem fs = getFileSystem();
+        Path remotePath = new Path(remoteFilePath);
+        Path localPath = new Path(localFilePath);
+        try {
+            fs.copyToLocalFile(false, remotePath, localPath, true);
+            fs.close();
+            log.info("copy to local done.");
+            Instant end = Instant.now();
+            log.info("拷贝HDFS系统上的文件至本地，耗时(ms): " + Duration.between(start, end).toMillis());
         } catch (IOException e) {
             e.printStackTrace();
         }
