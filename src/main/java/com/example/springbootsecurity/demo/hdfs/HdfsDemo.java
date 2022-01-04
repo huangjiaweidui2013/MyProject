@@ -1,16 +1,19 @@
 package com.example.springbootsecurity.demo.hdfs;
 
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.*;
 import org.apache.hadoop.io.IOUtils;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.nio.charset.StandardCharsets;
 import java.time.Duration;
 import java.time.Instant;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 
@@ -21,22 +24,28 @@ import java.util.Date;
  */
 @Slf4j
 public class HdfsDemo {
+    // HDFS服务器地址
     private static final String BASE_URL = "hdfs://192.168.56.130:9000";
     private static final String BASE_DIR = "/test/root/huang";
 
     public static void main(String[] args) throws IOException, URISyntaxException, InterruptedException {
 //        readFile();
-//        mkdir("/test/root/huang3");
+//        mkdir("/test/root/huang/child1");
 //        createFile("test_file2.txt", "用户文件表数据库表结构设计（userId、文件上传存储名称、文件大小、文件类型、文件路径、上传时间、版本号等）");
+//        createFile("/test/root/huang/child1", "test11.txt", LocalDateTime.now().toString());
+//        createFile("/test/root/huang/child1", "test12.txt", LocalDateTime.now().toString());
+//        createFile("/test/root/huang/child2", "test21.txt", LocalDateTime.now().toString());
 //        readRemoteFile(BASE_DIR + "/text_create.txt");
-//        appendFile("test_file2.txt", "这里的内容是为了测试是否能追加HDFS上的文件内容");
+//        appendFile("test_file2.txt", "\n这里的内容是为了测试是否能追加HDFS上的文件内容，追加时间为：" + LocalDateTime.now() + "\n");
 //        rename("/test/root/huang3", "/test/root/huang123456789");
+        rename("/test/root/huang/child1/test11.txt", "/test/root/huang/child1/test1111111111.txt");
 //        getFileStatus(BASE_DIR + "/text_create.txt");
 //        copyToHDFS("D:\\java_tools\\nacos-server-2.0.3.zip", "/test/root/huang123456789");
-        copyToLocal("/test/root/huang123456789/nacos-server-2.0.3.zip", "D:\\nacos-server-2.0.3.zip");
+//        copyToLocal("/test/root/huang123456789/nacos-server-2.0.3.zip", "D:\\nacos-server-2.0.3.zip");
 //        copyToHDFS("D:\\java_tools\\nacos-server-2.0.3.zip", "/test/root/huang2");
 //        appendToFile(BASE_DIR + "/" + "test_file2.txt", "/n 再次追加文件内容，123456789，China！");
 //        deleteFile("/test/root/huang123456789/apache-maven-3.6.1-bin.zip");
+//        listFile1(BASE_DIR);
     }
 
     public static FileSystem getFileSystem() {
@@ -70,7 +79,6 @@ public class HdfsDemo {
         FSDataInputStream dis = getFileSystem().open(src);
         IOUtils.copyBytes(dis, System.out, configuration);
         dis.close();
-
     }
 
     /**
@@ -102,10 +110,20 @@ public class HdfsDemo {
      * @param content  文件内容
      */
     public static void createFile(String fileName, String content) {
+        createFile(BASE_DIR + "/" + fileName, fileName, content);
+    }
+
+    /**
+     * 创建文件并写入内容
+     *
+     * @param fileName 文件名
+     * @param content  文件内容
+     */
+    public static void createFile(String filePath, String fileName, String content) {
         byte[] data = content.getBytes(StandardCharsets.UTF_8);
         try {
             FileSystem fs = getFileSystem();
-            Path path = new Path(BASE_DIR + "/" + fileName);
+            Path path = new Path(filePath + File.separator + fileName);
             FSDataOutputStream dataOutputStream = fs.create(path);
             dataOutputStream.write(data);
             dataOutputStream.close();
@@ -158,7 +176,7 @@ public class HdfsDemo {
     }
 
     /**
-     * 文件夹重命名，只能重命名文件夹
+     * 文件或者文件夹重命名
      *
      * @param originName 原名称
      * @param newName    新名称
@@ -187,14 +205,15 @@ public class HdfsDemo {
             FileStatus status = fs.getFileStatus(file);
             long time = status.getModificationTime();
             log.info("file " + file.getName() + " last modification time :" + new Date(time));
-            log.info("status info => owner: {} , path: {}, len: {}", status.getOwner(), status.getPath(), status.getLen());
+            log.info("status info => owner: {} , path: {}, len: {}", status.getOwner(),
+                    status.getPath(), status.getLen());
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
     /**
-     * 拷贝本地文件到HDFS
+     * 文件上传：拷贝本地文件到HDFS
      *
      * @param localFilePath 本地文件路径
      * @param destPath      HDFS目标路径
@@ -216,7 +235,7 @@ public class HdfsDemo {
     }
 
     /**
-     * 拷贝HDFS上的文件至本地
+     * 文件下载：拷贝HDFS上的文件至本地
      *
      * @param remoteFilePath
      * @param localFilePath
@@ -258,7 +277,7 @@ public class HdfsDemo {
     }
 
     /**
-     * 删除指定文件
+     * 删除指定文件捉着文件夹
      *
      * @param filePath 文件路径
      */
@@ -274,6 +293,60 @@ public class HdfsDemo {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 使用 FileSystem.listFiles 方法遍历文件
+     *
+     * @param filePath
+     * @throws IOException
+     */
+    public static void listFile1(String filePath) throws IOException {
+        Path path = new Path(filePath);
+        FileSystem fs = getFileSystem();
+        RemoteIterator<LocatedFileStatus> iterator = fs.listFiles(path, true);
+        while (iterator.hasNext()) {
+            LocatedFileStatus fileStatus = iterator.next();
+            Path statusPath = fileStatus.getPath();
+            if (fileStatus.isFile()) {
+                System.out.println("文件： " + statusPath);
+                System.out.println("文件名： " + statusPath.getName());
+            } else {
+                System.out.println("目录： " + statusPath);
+            }
+        }
+    }
+
+    /**
+     * 使用 FileSystem.listFiles 方法遍历文件
+     *
+     * @param filePath
+     * @throws IOException
+     */
+    public static void listFile2(String filePath) throws IOException {
+        Path path = new Path(filePath);
+        FileSystem fs = getFileSystem();
+        FileStatus[] fileStatuses = fs.listStatus(path);
+        for (FileStatus status : fileStatuses) {
+            if (status.isFile()) {
+                System.out.println("文件： " + status);
+                System.out.println("文件名： " + status.getPath().getName());
+            } else {
+                System.out.println("目录： " + status.getPath());
+            }
+        }
+    }
+
+
+    @SneakyThrows
+    public static void getFileSystemInfo() {
+        FileSystem fs = getFileSystem();
+        URI uri = fs.getUri();
+        long used = fs.getUsed();
+        Path workingDirectory = fs.getWorkingDirectory();
+        System.out.println("uri: " + uri);
+        System.out.println("used: " + used);
+        System.out.println("workingDirectory: " + workingDirectory);
     }
 
 }

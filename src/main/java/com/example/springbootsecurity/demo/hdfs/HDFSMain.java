@@ -1,6 +1,7 @@
 package com.example.springbootsecurity.demo.hdfs;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 import org.apache.hadoop.conf.Configuration;
@@ -136,7 +137,7 @@ public class HDFSMain {
      * @param fs
      */
     public static void appendToFile(FileSystem fs) {
-        byte[] data = "append for hdfs!\n".getBytes();
+        byte[] data = ("\n这是测试新增的文件内容，新增时间为：" + LocalDateTime.now() + "\n").getBytes();
         Path path = new Path("/user/root/2019/20190830.txt");
         try {
             FSDataOutputStream output = fs.append(path);

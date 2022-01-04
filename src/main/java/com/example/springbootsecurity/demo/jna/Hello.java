@@ -113,6 +113,8 @@ public class Hello {
 //        testGrade();
 //        System.out.println("testGrade: " + testGrade());
 //        testPointer();
+        System.getProperty("java.library.path");
+        System.out.println(System.getProperty("java.library.path"));
         testChangeUser();
     }
 
