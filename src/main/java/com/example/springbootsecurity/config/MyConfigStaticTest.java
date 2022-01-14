@@ -44,6 +44,11 @@ public class MyConfigStaticTest {
         MyConfigStaticTest.name = name;
     }
 
+    /**
+     * 注意set方法必须是非静态的
+     *
+     * @param age
+     */
     @Value(value = "${my.config.test.age:18}")
     public void setAge(Integer age) {
         MyConfigStaticTest.age = age;

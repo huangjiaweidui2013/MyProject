@@ -25,20 +25,21 @@ import java.util.Date;
 @Slf4j
 public class HdfsDemo {
     // HDFS服务器地址
-    private static final String BASE_URL = "hdfs://192.168.56.130:9000";
+//    private static final String BASE_URL = "hdfs://192.168.56.130:9000";
+    private static final String BASE_URL = "hdfs://192.168.56.172:9000";
     private static final String BASE_DIR = "/test/root/huang";
 
     public static void main(String[] args) throws IOException, URISyntaxException, InterruptedException {
 //        readFile();
-//        mkdir("/test/root/huang/child1");
-//        createFile("test_file2.txt", "用户文件表数据库表结构设计（userId、文件上传存储名称、文件大小、文件类型、文件路径、上传时间、版本号等）");
+        mkdir("/test/root/huang/child333");
+        createFile("test_file1444.txt", "用户文件表数据库表结构设计（userId、文件上传存储名称、文件大小、文件类型、文件路径、上传时间、版本号等）");
 //        createFile("/test/root/huang/child1", "test11.txt", LocalDateTime.now().toString());
 //        createFile("/test/root/huang/child1", "test12.txt", LocalDateTime.now().toString());
 //        createFile("/test/root/huang/child2", "test21.txt", LocalDateTime.now().toString());
 //        readRemoteFile(BASE_DIR + "/text_create.txt");
 //        appendFile("test_file2.txt", "\n这里的内容是为了测试是否能追加HDFS上的文件内容，追加时间为：" + LocalDateTime.now() + "\n");
 //        rename("/test/root/huang3", "/test/root/huang123456789");
-        rename("/test/root/huang/child1/test11.txt", "/test/root/huang/child1/test1111111111.txt");
+//        rename("/test/root/huang/child1/test11.txt", "/test/root/huang/child1/test1111111111.txt");
 //        getFileStatus(BASE_DIR + "/text_create.txt");
 //        copyToHDFS("D:\\java_tools\\nacos-server-2.0.3.zip", "/test/root/huang123456789");
 //        copyToLocal("/test/root/huang123456789/nacos-server-2.0.3.zip", "D:\\nacos-server-2.0.3.zip");
@@ -61,7 +62,7 @@ public class HdfsDemo {
              */
             configuration.set("dfs.client.block.write.replace-datanode-on-failure.enable", "true");
             configuration.set("dfs.client.block.write.replace-datanode-on-failure.policy", "NEVER");
-            return FileSystem.get(new URI(BASE_URL), configuration, "root");
+            return FileSystem.get(new URI(BASE_URL), configuration, "hadoop");
         } catch (IOException | InterruptedException | URISyntaxException e) {
             e.printStackTrace();
         }
