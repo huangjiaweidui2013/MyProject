@@ -84,4 +84,8 @@ public class AjaxResult extends HashMap<String, Object> {
     public static AjaxResult error(String msg, Object data) {
         return new AjaxResult(HttpStatus.HTTP_INTERNAL_ERROR, msg, data);
     }
+
+    public static AjaxResult error(int code, String msg, Object data) {
+        return new AjaxResult(code, msg, data);
+    }
 }

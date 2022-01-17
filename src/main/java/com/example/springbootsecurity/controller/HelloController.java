@@ -19,6 +19,7 @@ import org.apache.logging.log4j.util.Strings;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -55,7 +56,7 @@ public class HelloController {
     private final ScheduledExecutorService executorService = new ScheduledThreadPoolExecutor(5);
 
     @RequestMapping("/hello")
-    public String hello(HttpServletRequest request) {
+    public String hello(@Validated HttpServletRequest request) {
         String nowString = formatter.format(LocalDateTime.now());
         System.out.println("controller方法当前时间: " + nowString);
         // http://localhost:8887/pages/hello.html
