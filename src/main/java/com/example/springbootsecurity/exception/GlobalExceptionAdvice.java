@@ -2,6 +2,7 @@ package com.example.springbootsecurity.exception;
 
 import com.example.springbootsecurity.result.AjaxResult;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
 import org.springframework.util.CollectionUtils;
 import org.springframework.validation.BindException;
@@ -41,9 +42,8 @@ public class GlobalExceptionAdvice {
     public AjaxResult handleValidationException(HttpServletRequest request, ConstraintViolationException e) {
         log.error("异常:" + request.getRequestURI(), e);
         String collect = e.getConstraintViolations().stream().filter(Objects::nonNull)
-                .map(cv -> cv == null ? "null" : cv.getPropertyPath() + ": " + cv.getMessage())
+                .map(cv -> cv.getPropertyPath() + ": " + cv.getMessage())
                 .collect(Collectors.joining(", "));
-        AjaxResult restResultWrapper = AjaxResult.error();
         log.info("请求参数异常", collect);
         return AjaxResult.error(e.getMessage(), HttpStatus.BAD_REQUEST.value());
     }
@@ -60,14 +60,9 @@ public class GlobalExceptionAdvice {
     @ResponseBody
     public AjaxResult methodArgumentValidationHandler(HttpServletRequest request, MethodArgumentNotValidException e) {
         log.info("异常:" + request.getRequestURI(), e);
-        log.info("请求参数错误！{}", getExceptionDetail(e), "参数数据：" + showParams(request));
-        String message = "";
-        if (e.getBindingResult() != null && !CollectionUtils.isEmpty(e.getBindingResult().getAllErrors())) {
-            message = e.getBindingResult().getAllErrors().get(0).getDefaultMessage();
-        } else {
-            message = e.getMessage();
-        }
-        return AjaxResult.error(e.getMessage(), HttpStatus.BAD_REQUEST.value());
+        List<ObjectError> allErrors = e.getBindingResult().getAllErrors();
+        String collect = allErrors.stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining(";"));
+        return AjaxResult.error(collect, HttpStatus.BAD_REQUEST.value());
     }
 
     /**
@@ -86,14 +81,14 @@ public class GlobalExceptionAdvice {
         List<ObjectError> allErrors = e.getBindingResult().getAllErrors();
         allErrors.stream().filter(Objects::nonNull).forEach(objectError -> {
             map.put("请求路径：" + request.getRequestURI() + "--请求参数：" +
-                            (((FieldError) allErrors.get(0)).getField().toString()),
+                            (((FieldError) objectError).getField().toString()),
                     objectError.getDefaultMessage());
         });
         return AjaxResult.error(HttpStatus.BAD_REQUEST.value(), "请求参数绑定失败", map);
     }
 
     /**
-     * 访问接口参数不全
+     * 访问接口参数不全  @RequestParam注解
      *
      * @param request
      * @param e
@@ -103,13 +98,20 @@ public class GlobalExceptionAdvice {
     @ResponseBody
     public AjaxResult missingServletRequestParameterException(HttpServletRequest request,
                                                               MissingServletRequestParameterException e) {
+        //错误信息
+        String message = e.getMessage();
+        //缺少的请求参数名称
+        String parameterName = e.getParameterName();
+        //缺少的请求参数类型
+        String parameterType = e.getParameterType();
         log.error("异常:" + request.getRequestURI(), e);
-        return AjaxResult.error(HttpStatus.BAD_REQUEST.value(), "该请求路径：" + request.getRequestURI() +
-                "下的请求参数不全：" + e.getMessage());
+        return AjaxResult.error(HttpStatus.BAD_REQUEST.value(), "参数不全，缺少类型为" +
+                parameterType + "的" + parameterName + "请求参数，" + "该请求路径：" + request.getRequestURI() +
+                "下的请求参数不全：" + message);
     }
 
     /**
-     * HttpRequestMethodNotSupportedException
+     * HttpRequestMethodNotSupportedException 请求方式不支持异常
      *
      * @param request
      * @param e
@@ -119,8 +121,11 @@ public class GlobalExceptionAdvice {
     @ResponseBody
     public AjaxResult httpRequestMethodNotSupportedException(HttpServletRequest request,
                                                              HttpRequestMethodNotSupportedException e) {
+        String method = e.getMethod();
+        String[] supportedMethods = e.getSupportedMethods();
         log.error("异常:" + request.getRequestURI(), e);
-        return AjaxResult.error(HttpStatus.BAD_REQUEST.value(), "请求方式不正确");
+        return AjaxResult.error(HttpStatus.BAD_REQUEST.value(), "请求方式不正确,只支持" + Arrays.toString(supportedMethods)
+                + "请求，不支持" + method + "请求");
     }
 
     /**
@@ -151,34 +156,6 @@ public class GlobalExceptionAdvice {
             stringBuffer.append(stackTraceElement.toString()).append("\n");
         });
         return stringBuffer.toString();
-    }
-
-    /**
-     * 请求参数
-     *
-     * @param request
-     * @return
-     */
-    public String showParams(HttpServletRequest request) {
-        Map<String, Object> map = new HashMap<String, Object>();
-        StringBuilder stringBuilder = new StringBuilder();
-        Enumeration paramNames = request.getParameterNames();
-        stringBuilder.append("----------------参数开始-------------------");
-        stringBuilder.append(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-        if (Objects.nonNull(paramNames)) {
-            while (paramNames.hasMoreElements()) {
-                String paramName = (String) paramNames.nextElement();
-                String[] paramValues = request.getParameterValues(paramName);
-                if (paramValues.length > 0) {
-                    String paramValue = paramValues[0];
-                    if (paramValue.length() != 0) {
-                        stringBuilder.append("参数名:").append(paramName).append("参数值:").append(paramValue);
-                    }
-                }
-            }
-        }
-        stringBuilder.append("----------------参数结束-------------------");
-        return stringBuilder.toString();
     }
 
 
