@@ -19,11 +19,10 @@ import static java.lang.annotation.RetentionPolicy.RUNTIME;
 @Documented
 @Constraint(validatedBy = {EnumValueValidator.class})
 public @interface EnumValue {
+    //是否允许为null
+    boolean isRequired() default true;
+
     String message() default "必须为指定值";
-
-    enum enmType {}
-
-    ;
 
     String[] strValues() default {};
 

@@ -4,6 +4,7 @@ import com.example.springbootsecurity.result.AjaxResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.converter.HttpMessageConversionException;
 import org.springframework.util.CollectionUtils;
 import org.springframework.validation.BindException;
 import org.springframework.validation.FieldError;
@@ -30,8 +31,7 @@ import java.util.stream.Collectors;
 @RestControllerAdvice
 public class GlobalExceptionAdvice {
     /**
-     * 方法参数校验异常 Validate
-     * 处理请求参数格式错误 @RequestParam上validate失败后抛出的异常是ConstraintViolationException
+     * 数据库报的违反唯一性约束异常，该异常表示，在插入的字段中某一字段或某几个字段的组合违反了数据库唯一性约束
      *
      * @param request
      * @param e
@@ -39,7 +39,7 @@ public class GlobalExceptionAdvice {
      */
     @ExceptionHandler(ConstraintViolationException.class)
     @ResponseBody
-    public AjaxResult handleValidationException(HttpServletRequest request, ConstraintViolationException e) {
+    public AjaxResult handleConstraintViolationException(HttpServletRequest request, ConstraintViolationException e) {
         log.error("异常:" + request.getRequestURI(), e);
         String collect = e.getConstraintViolations().stream().filter(Objects::nonNull)
                 .map(cv -> cv.getPropertyPath() + ": " + cv.getMessage())
@@ -50,7 +50,8 @@ public class GlobalExceptionAdvice {
 
     /**
      * Bean 校验异常 Validate
-     * 处理请求参数格式错误 @RequestBody上validate失败后抛出的异常是MethodArgumentNotValidException异常
+     * 处理请求参数格式错误 @RequestBody上validate失败后抛出的异常是MethodArgumentNotValidException异常，
+     * 例如POST请求body中json字符串缺少必要的属性，属性值不正确等
      *
      * @param request
      * @param e
@@ -58,7 +59,7 @@ public class GlobalExceptionAdvice {
      */
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     @ResponseBody
-    public AjaxResult methodArgumentValidationHandler(HttpServletRequest request, MethodArgumentNotValidException e) {
+    public AjaxResult handleMethodArgumentNotValidException(HttpServletRequest request, MethodArgumentNotValidException e) {
         log.info("异常:" + request.getRequestURI(), e);
         List<ObjectError> allErrors = e.getBindingResult().getAllErrors();
         String collect = allErrors.stream().map(DefaultMessageSourceResolvable::getDefaultMessage).collect(Collectors.joining(";"));
@@ -75,7 +76,7 @@ public class GlobalExceptionAdvice {
      */
     @ExceptionHandler(BindException.class)
     @ResponseBody
-    public AjaxResult bindException(HttpServletRequest request, BindException e) {
+    public AjaxResult handleBindException(HttpServletRequest request, BindException e) {
         log.error("异常:" + request.getRequestURI(), e);
         Map<String, Object> map = new HashMap<>();
         List<ObjectError> allErrors = e.getBindingResult().getAllErrors();
@@ -96,8 +97,8 @@ public class GlobalExceptionAdvice {
      */
     @ExceptionHandler(MissingServletRequestParameterException.class)
     @ResponseBody
-    public AjaxResult missingServletRequestParameterException(HttpServletRequest request,
-                                                              MissingServletRequestParameterException e) {
+    public AjaxResult handleMissingServletRequestParameterException(HttpServletRequest request,
+                                                                    MissingServletRequestParameterException e) {
         //错误信息
         String message = e.getMessage();
         //缺少的请求参数名称
@@ -119,13 +120,28 @@ public class GlobalExceptionAdvice {
      */
     @ExceptionHandler(HttpRequestMethodNotSupportedException.class)
     @ResponseBody
-    public AjaxResult httpRequestMethodNotSupportedException(HttpServletRequest request,
-                                                             HttpRequestMethodNotSupportedException e) {
+    public AjaxResult handleHttpRequestMethodNotSupportedException(HttpServletRequest request,
+                                                                   HttpRequestMethodNotSupportedException e) {
         String method = e.getMethod();
         String[] supportedMethods = e.getSupportedMethods();
         log.error("异常:" + request.getRequestURI(), e);
         return AjaxResult.error(HttpStatus.BAD_REQUEST.value(), "请求方式不正确,只支持" + Arrays.toString(supportedMethods)
                 + "请求，不支持" + method + "请求");
+    }
+
+    /**
+     * JSON参数解析转换错误
+     *
+     * @param request
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(HttpMessageConversionException.class)
+    @ResponseBody
+    public AjaxResult handleHttpMessageConversionException(HttpServletRequest request,
+                                                           HttpMessageConversionException e) {
+        log.error("JSON参数解析转换错误" + request.getRequestURI(), e);
+        return AjaxResult.error(HttpStatus.BAD_REQUEST.value(), "JSON参数解析转换错误");
     }
 
     /**
@@ -137,7 +153,7 @@ public class GlobalExceptionAdvice {
      */
     @ExceptionHandler(Exception.class)
     @ResponseBody
-    public AjaxResult otherException(HttpServletRequest request, Exception e) {
+    public AjaxResult handleException(HttpServletRequest request, Exception e) {
         log.error("异常:" + request.getRequestURI(), e);
         return AjaxResult.error(HttpStatus.BAD_REQUEST.value(), getExceptionDetail(e));
     }
