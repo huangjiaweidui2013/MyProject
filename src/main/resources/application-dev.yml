@@ -14,6 +14,9 @@ my:
       name: huang
       age: 15
       addr: China
+      arry:
+        - abs
+        - test
 
 # springboot 使用 nacos config 管理项目配置文件的另一种方式,通过 Nacos Server 和
 #  nacos-config-spring-boot-starter 实现配置的动态变更

@@ -14,12 +14,14 @@ public class DocOperateRequest {
      * 文档id
      */
     @Max(Long.MAX_VALUE)
-    @NotNull
+    //使用 groups 来指定校验顺序
+    @NotNull(groups = VerifySequence.N0.class)
     private Long id;
 
     /**
      * 操作方式
      */
-    @NotBlank
+    //使用 groups 来指定校验顺序
+    @NotBlank(groups = VerifySequence.N1.class)
     private String type;
 }

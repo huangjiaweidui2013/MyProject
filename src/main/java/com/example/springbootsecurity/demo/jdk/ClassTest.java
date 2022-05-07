@@ -14,10 +14,13 @@ public class ClassTest {
         Class<Map> mapClass = Map.class;
         Class<HashMap> hashMapClass = HashMap.class;
         Class<List> listClass = List.class;
+        //true
         boolean b1 = mapClass.isAssignableFrom(hashMapClass);
         System.out.println("mapClass.isAssignableFrom(hashMapClass): " + b1);
+        //false
         boolean b2 = mapClass.isAssignableFrom(listClass);
         System.out.println("mapClass.isAssignableFrom(listClass): " + b2);
+        //false
         boolean b3 = hashMapClass.isAssignableFrom(mapClass);
         System.out.println("hashMapClass.isAssignableFrom(mapClass): " + b3);
     }

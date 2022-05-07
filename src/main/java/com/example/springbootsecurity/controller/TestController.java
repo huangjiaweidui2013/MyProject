@@ -1,24 +1,22 @@
 package com.example.springbootsecurity.controller;
 
-import cn.hutool.core.convert.Convert;
+import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.IdUtil;
-import cn.hutool.core.util.RandomUtil;
+import com.example.springbootsecurity.demo.entity.Person;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
-import com.fasterxml.jackson.databind.node.TextNode;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.text.StringEscapeUtils;
+import org.springframework.beans.BeanUtils;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Duration;
-import java.time.Instant;
-import java.util.*;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @projectName: SpringBootSecurity
@@ -31,34 +29,33 @@ import java.util.*;
 @Slf4j
 public class TestController {
     public static void main(String[] args) {
-//        StringBuilder stringBuilder1 = new StringBuilder("");
-//        StringBuilder stringBuilder2 = new StringBuilder();
-//        System.out.println(stringBuilder1);
-//        System.out.println(stringBuilder2);
+        String proj = "proj";
+//        String format = MessageFormat.format("测试{0} == {1} === {2}===={5}", "abc", "def", "ghi", "jkl");
+//        System.out.println(format);
 //
-//        long currentTimeMillis = System.currentTimeMillis();
-//        System.out.println(currentTimeMillis);
-
-        List<Long> longList = new ArrayList<>();
-        longList.add(1356L);
-        longList.add(135556L);
-        Long[] longs = Convert.toLongArray(longList);
-        Arrays.stream(longs).forEach(System.out::println);
-
-//        String s = addWithSuffix("my.test.file.dwg", ".", "-copy");
-//        String s2 = addWithSuffix("my-test./hh.file////ll.dwg", ".", "-copy");
-//        System.out.println(s2);
+//        List<Long> list = CollUtil.newArrayList(100L, 200L, 300L);
+//        Long[] array = list.toArray(new Long[0]);
+//        for (Long aLong : array) {
+//            System.out.println(aLong);
+//        }
 
 
-//        jsonToString();
-//        System.out.println(null == null);
-//        System.out.println(Objects.equals(null, null));
-//        System.out.println(Objects.equals(null, 100L));
-//        System.out.println(Objects.deepEquals(new Integer[]{1, 2, 3}, new Integer[]{1, 2, 3, 4}));
-//
-//        StringEscapeUtils.escapeJson("");
-//
-//        System.out.println(null instanceof String);
+        Person p1 = Person.builder().id(100L).age(18).name("Jim").build();
+        Person p2 = Person.builder().id(101L).age(19).name("Kitty").build();
+        Person p3 = Person.builder().id(102L).age(20).name("Kate").build();
+        List<Person> dishList = CollUtil.newArrayList(p1, p2, p3);
+        List<Person> dishList2 = CollUtil.newArrayList();
+        BeanUtils.copyProperties(dishList, dishList2);
+        List<Person> people = BeanUtil.copyToList(dishList, Person.class);
+        people.forEach(Person -> {
+            System.out.println(Person.toString());
+        });
+
+        String s = IdUtil.objectId();
+        String fastSimpleUUID = IdUtil.fastSimpleUUID();
+        System.out.println(s);
+        System.out.println(fastSimpleUUID);
+
     }
 
 
@@ -69,6 +66,7 @@ public class TestController {
         map.put("COUPON_DISCOUNT_AMOUNT", couponDiscountAmount);
     }
 
+
     private static Long daysBetween(Date date1, Date date2) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         date1 = sdf.parse(sdf.format(date1));
@@ -78,8 +76,7 @@ public class TestController {
         long time1 = cal.getTimeInMillis();
         cal.setTime(date2);
         long time2 = cal.getTimeInMillis();
-        long between_days = (time2 - time1) / (1000 * 3600 * 24);
-        return between_days;
+        return (time2 - time1) / (1000 * 3600 * 24);
     }
 
     private static void jsonToString() {
@@ -96,7 +93,7 @@ public class TestController {
         ObjectNode dataNode = mapper.createObjectNode();
         dataNode.put("docId", IdUtil.objectId());
         dataNode.put("dwgpath", "/data/upload");
-        root.put("data", dataNode);
+        root.set("data", dataNode);
         System.out.println(root);
     }
 
@@ -107,7 +104,6 @@ public class TestController {
         int index = name.lastIndexOf(separator);
         String s1 = name.substring(0, index);
         String s2 = name.substring(index);
-        String s = s1 + suffix + s2;
-        return s;
+        return s1 + suffix + s2;
     }
 }
