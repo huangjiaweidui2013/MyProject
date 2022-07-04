@@ -30,6 +30,8 @@ public @interface EnumValue {
 
     Class<?>[] groups() default {};
 
+    Class<?>[] belongEnum() default {};
+
     Class<? extends Payload>[] payload() default {};
 
     @Target({FIELD, METHOD, PARAMETER, ANNOTATION_TYPE})

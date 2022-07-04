@@ -1,10 +1,10 @@
 package com.example.springbootsecurity.test;
 
-import cn.hutool.core.util.IdUtil;
-import com.example.springbootsecurity.research.model.DwgBlock;
-import org.springframework.beans.BeanUtils;
+import org.apache.commons.io.FilenameUtils;
+import org.springframework.util.DigestUtils;
 
-import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 /**
  * @author: huang lang
@@ -12,27 +12,22 @@ import java.io.File;
  * @date: 2022/1/4 16:40
  */
 public class OtherTest {
-    public static void main(String[] args) {
-        long id = IdUtil.getSnowflake(1, 1).nextId();
-        System.out.println(id);
+    public static void main(String[] args) throws IOException {
+        String path = "./abc/huawei/test.txt";
+        String normalize = FilenameUtils.normalize(path);
+        String name = FilenameUtils.getName(normalize);
+        System.out.println(normalize);
+        System.out.println(name);
 
-        String fastSimpleUUID = IdUtil.fastSimpleUUID();
-        System.out.println(fastSimpleUUID);
-        String fastUUID = IdUtil.fastUUID();
-        System.out.println(fastUUID);
+    }
 
-        String str = "shop//test.dwg";
-        String substring = str.substring(str.lastIndexOf("."));
-        System.out.println(substring);
 
-        File file = new File("D:\\test123\\123//234\\text.txt");
-        if (!file.getParentFile().exists()) {
-            boolean mkdirs = file.getParentFile().mkdirs();
-            System.out.println(mkdirs);
-        }
-
-        DwgBlock dwgBlock = DwgBlock.builder().pid("1233").build();
-        BeanUtils.copyProperties(dwgBlock, DwgBlock.builder().build());
-
+    public static void md5() throws IOException {
+        FileInputStream fileInputStream0 = new FileInputStream("D:\\java开发工具\\sogou_pinyin_114a.exe");
+//        FileInputStream fileInputStream0 = new FileInputStream("D:\\java_tools.rar");
+        long start = System.currentTimeMillis();
+        String s0 = DigestUtils.md5DigestAsHex(fileInputStream0);
+        long end = System.currentTimeMillis();
+        System.out.println("s0: " + s0 + " , 耗时: " + (end - start) + " ms");
     }
 }

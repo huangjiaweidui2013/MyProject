@@ -1,22 +1,18 @@
 package com.example.springbootsecurity.controller;
 
-import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.IdUtil;
-import com.example.springbootsecurity.demo.entity.Person;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.BeanUtils;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @projectName: SpringBootSecurity
@@ -28,34 +24,66 @@ import java.util.Map;
  */
 @Slf4j
 public class TestController {
-    public static void main(String[] args) {
-        String proj = "proj";
-//        String format = MessageFormat.format("测试{0} == {1} === {2}===={5}", "abc", "def", "ghi", "jkl");
-//        System.out.println(format);
+
+    public static void main(String[] args) throws IOException {
+        Map<String, Integer> map = new HashMap<>();
+        map.put("a", 1);
+        map.put("b", 2);
+        map.put("c", 3);
+        map.put("d", 4);
+        removeMapKey(map, "b");
+        map.forEach((k, v) ->
+                System.out.println("K: " + k + ", V: " + v)
+        );
+
+
+    }
+
+
+    private static void removeMapKey(Map<String, Integer> map, String key) {
+        map.remove(key);
+    }
+
+    private static void md5Hex() throws IOException {
+
+//        FileInputStream fileInputStream0 = new FileInputStream("D:\\java_tools.rar");
+        FileInputStream fileInputStream0 = new FileInputStream("D:\\java开发工具\\sogou_pinyin_114a.exe");
+        long start = System.currentTimeMillis();
+        String s0 = DigestUtils.md5Hex(fileInputStream0);
+        long end = System.currentTimeMillis();
+        System.out.println("s0: " + s0 + " , 耗时: " + (end - start) + " ms");
+
 //
-//        List<Long> list = CollUtil.newArrayList(100L, 200L, 300L);
-//        Long[] array = list.toArray(new Long[0]);
-//        for (Long aLong : array) {
-//            System.out.println(aLong);
-//        }
+//        FileInputStream fileInputStream00 = new FileInputStream("D:\\java开发工具\\sogou_pinyin_114a.exe");
+//        long start1 = System.currentTimeMillis();
+//        String sha256Hex = DigestUtils.sha256Hex(fileInputStream00);
+//        long end1 = System.currentTimeMillis();
+//        System.out.println("sha256Hex: " + sha256Hex + " , 耗时: " + (end1 - start1) + " ms");
+//
+//
+//        FileInputStream fileInputStream1 = new FileInputStream("D:\\jna_test\\测试文档名称.md");
+//        String s1 = DigestUtils.sha256Hex(fileInputStream1);
+//
+//        FileInputStream fileInputStream2 = new FileInputStream("D:\\jna_test\\test\\测试文档名称.md");
+//        String s2 = DigestUtils.sha256Hex(fileInputStream2);
+//        System.out.println("s1: " + s1 + " , s2: " + s2 + " , 是否相同: " + s1.equals(s2));
 
 
-        Person p1 = Person.builder().id(100L).age(18).name("Jim").build();
-        Person p2 = Person.builder().id(101L).age(19).name("Kitty").build();
-        Person p3 = Person.builder().id(102L).age(20).name("Kate").build();
-        List<Person> dishList = CollUtil.newArrayList(p1, p2, p3);
-        List<Person> dishList2 = CollUtil.newArrayList();
-        BeanUtils.copyProperties(dishList, dishList2);
-        List<Person> people = BeanUtil.copyToList(dishList, Person.class);
-        people.forEach(Person -> {
-            System.out.println(Person.toString());
-        });
-
-        String s = IdUtil.objectId();
-        String fastSimpleUUID = IdUtil.fastSimpleUUID();
-        System.out.println(s);
-        System.out.println(fastSimpleUUID);
-
+//        Person p1 = Person.builder().id(100L).age(18).name("Jim").build();
+//        Person p2 = Person.builder().id(101L).age(19).name("Kitty").build();
+//        Person p3 = Person.builder().id(102L).age(20).name("Kate").build();
+//        List<Person> dishList = CollUtil.newArrayList(p1, p2, p3);
+//        List<Person> dishList2 = CollUtil.newArrayList();
+//        BeanUtils.copyProperties(dishList, dishList2);
+//        List<Person> people = BeanUtil.copyToList(dishList, Person.class);
+//        people.forEach(Person -> {
+//            System.out.println(Person.toString());
+//        });
+//
+//        String s = IdUtil.objectId();
+//        String fastSimpleUUID = IdUtil.fastSimpleUUID();
+//        System.out.println(s);
+//        System.out.println(fastSimpleUUID);
     }
 
 
@@ -105,5 +133,12 @@ public class TestController {
         String s1 = name.substring(0, index);
         String s2 = name.substring(index);
         return s1 + suffix + s2;
+    }
+
+    private static void strJoin() {
+        StringJoiner stringJoiner = new StringJoiner(",", "[", "]");
+        List<Integer> list = List.of(100, 200, 300, 400, 500);
+        list.forEach(t -> stringJoiner.add(t.toString()));
+        System.out.println(stringJoiner.toString());
     }
 }

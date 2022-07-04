@@ -9,11 +9,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
-import java.util.Comparator;
-import java.util.IntSummaryStatistics;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.function.BinaryOperator;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -97,6 +93,7 @@ public class CollectorsGroupingBy {
         Map<String, List<Apple>> listMap =
                 list.stream().collect(Collectors.groupingBy(obj -> obj.getCategory() + "_" + obj.getName()));
         System.out.println(mapper.writeValueAsString(listMap));
+        Collection<List<Apple>> values = listMap.values();
     }
 
     /**
@@ -181,6 +178,20 @@ public class CollectorsGroupingBy {
         System.out.println(mapper.writeValueAsString(collect));
     }
 
+    /**
+     * 数据分块
+     * 个收集器 partitioningBy，它接受一个流，并将其分成两部分。它使用 Predicate 对象判断一个元素应该属于哪个部分，并根据布尔值返回一
+     * 个 Map 到列表。因此，对于 true List 中的元素，Predicate 返回 true；对其他 List 中的
+     * 元素，Predicate 返回 false。
+     *
+     * @author localuser
+     * @date 2022/6/15 17:53 * @param list:  void
+     */
+    static void partitioningBy(List<Apple> list) throws JsonProcessingException {
+        Map<Boolean, List<Apple>> booleanListMap = list.stream().collect(Collectors.partitioningBy(Apple::isMature));
+        System.out.println(mapper.writeValueAsString(booleanListMap));
+    }
+
 
     @Data
     @Builder
@@ -196,19 +207,23 @@ public class CollectorsGroupingBy {
          * 类目
          */
         private String category;
+        /**
+         * 成熟的
+         */
+        private boolean mature;
     }
 
     static List<Apple> appleList() {
-        Apple apple1 = Apple.builder().id(1L).num(1).price(new BigDecimal("15.5")).name("绿苹果1").category("绿色").build();
-        Apple apple2 = Apple.builder().id(2L).num(2).price(new BigDecimal("10.5")).name("绿苹果2").category("绿色").build();
-        Apple apple3 = Apple.builder().id(3L).num(3).price(new BigDecimal("15.5")).name("绿苹果3").category("绿色").build();
-        Apple apple4 = Apple.builder().id(4L).num(3).price(new BigDecimal("20")).name("红苹果1").category("红色").build();
-        Apple apple5 = Apple.builder().id(5L).num(5).price(new BigDecimal("30")).name("红苹果2").category("红色").build();
-        Apple apple6 = Apple.builder().id(6L).num(5).price(new BigDecimal("10")).name("红苹果3").category("红色").build();
-        Apple apple7 = Apple.builder().id(7L).num(2).price(new BigDecimal("20")).name("绿苹果2").category("绿色").build();
-        Apple apple8 = Apple.builder().id(8L).num(2).price(new BigDecimal("15")).name("绿苹果3").category("绿色").build();
-        Apple apple9 = Apple.builder().id(9L).num(2).price(new BigDecimal("10")).name("绿苹果3").category("绿色").build();
-        Apple apple10 = Apple.builder().id(10L).num(3).price(new BigDecimal("15")).name("红苹果1").category("红色").build();
+        Apple apple1 = Apple.builder().id(1L).num(1).price(new BigDecimal("15.5")).name("绿苹果1").category("绿色").mature(false).build();
+        Apple apple2 = Apple.builder().id(2L).num(2).price(new BigDecimal("10.5")).name("绿苹果2").category("绿色").mature(false).build();
+        Apple apple3 = Apple.builder().id(3L).num(3).price(new BigDecimal("15.5")).name("绿苹果3").category("绿色").mature(false).build();
+        Apple apple4 = Apple.builder().id(4L).num(3).price(new BigDecimal("20")).name("红苹果1").category("红色").mature(true).build();
+        Apple apple5 = Apple.builder().id(5L).num(5).price(new BigDecimal("30")).name("红苹果2").category("红色").mature(true).build();
+        Apple apple6 = Apple.builder().id(6L).num(5).price(new BigDecimal("10")).name("红苹果3").category("红色").mature(true).build();
+        Apple apple7 = Apple.builder().id(7L).num(2).price(new BigDecimal("20")).name("绿苹果2").category("绿色").mature(false).build();
+        Apple apple8 = Apple.builder().id(8L).num(2).price(new BigDecimal("15")).name("绿苹果3").category("绿色").mature(false).build();
+        Apple apple9 = Apple.builder().id(9L).num(2).price(new BigDecimal("10")).name("绿苹果3").category("绿色").mature(false).build();
+        Apple apple10 = Apple.builder().id(10L).num(3).price(new BigDecimal("15")).name("红苹果1").category("红色").mature(true).build();
         return ListUtil.list(false, apple1, apple2, apple3, apple4, apple5, apple6, apple7, apple8, apple9, apple10);
     }
 }

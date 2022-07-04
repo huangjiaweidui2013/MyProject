@@ -1,10 +1,10 @@
 package com.example.springbootsecurity.validate;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 /**
  * @author: huang lang
@@ -22,6 +22,19 @@ public class EnumValueValidator implements ConstraintValidator<EnumValue, Object
         isRequired = constraintAnnotation.isRequired();
         strValues = constraintAnnotation.strValues();
         intValues = constraintAnnotation.intValues();
+        Class<?>[] anEnum = constraintAnnotation.belongEnum();
+        Collection<Object> values = new ArrayList<>();
+        if (ArrayUtils.isNotEmpty(anEnum)) {
+            Arrays.stream(anEnum).forEach(
+                    enumValue -> {
+                        Object[] enumConstants = enumValue.getEnumConstants();
+                        Enum[] enums = Arrays.copyOf(enumConstants, enumConstants.length, Enum[].class);
+                        Collections.addAll(values, enums);
+                    }
+            );
+        }
+        String[] str = values.stream().map(Object::toString).toArray(String[]::new);
+        strValues = ArrayUtils.addAll(strValues, str);
     }
 
     @Override
